@@ -2,10 +2,13 @@
 
 class ws_import {
 
-  /**
-  * Read content from Word document
-  */
-  public function read_docx($filename){
+    public int $post_id;
+    public string $error;
+
+    /**
+    * Read content from .docx Word document
+    */
+    public function read_docx($filename){
 
       $striped_content = '';
       $content = '';
@@ -31,10 +34,30 @@ class ws_import {
       $striped_content = strip_tags($content);
 
       return $striped_content;
-  }
+    }
 
+    /**
+     * Read content from .doc Word document
+     */
+    public function read_doc($userDoc){
+        $fileHandle = fopen($userDoc, "r");
+        $line = @fread($fileHandle, filesize($userDoc));
+        $lines = explode(chr(0x0D),$line);
+        $outtext = "";
+        foreach($lines as $thisline)
+        {
+            $pos = strpos($thisline, chr(0x00));
+            if (($pos !== FALSE)||(strlen($thisline)==0))
+            {
+            } else {
+                $outtext .= $thisline." ";
+            }
+        }
+        $outtext = preg_replace("/[^a-zA-Z0-9\s\,\.\-\n\r\t@\/\_\(\)]/","",$outtext);
+        return $outtext;
+    }
 
-  public function ws_insert($data){
+    public function ws_insert($data){
     $my_post = array(
         'post_title'    => wp_strip_all_tags( $data['post_title'] ),
         'post_content'  => $data['post_content'],
@@ -43,14 +66,22 @@ class ws_import {
     );
 
     // Insert the post into the database
-    return wp_insert_post( $my_post );
-  }
+      $this->post_id = wp_insert_post( $my_post );
+      if(!is_wp_error($this->post_id)){
+          return $this->post_id;
+      }else{
+          //there was an error in the post insertion,
+          return $this->error = $this->post_id->get_error_message();
+      }
+    }
 
 
-  public function ws_update_meta($postid, $meta){
+    public function ws_update_meta($postid, $meta){
     update_post_meta( $postid, '_yoast_wpseo_title', $meta['meta_title'] );
     update_post_meta( $postid, '_yoast_wpseo_metadesc', $meta['meta_description'] );
-  }
+    }
+
+
 
     /**
      * Empty the log file
