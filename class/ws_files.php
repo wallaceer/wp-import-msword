@@ -75,6 +75,8 @@ class ws_files
                 return 'application/vnd.ms-officetheme';
             case 'doc':
                 return 'application/msword';
+            default:
+                return 'other';
             //END MS Office 2007 Docs
 
         }
