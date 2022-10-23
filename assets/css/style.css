@@ -5,17 +5,26 @@
 }
 
 /* (B) WRAPPER */
-.upwrap { max-width: 400px; }
+.upwrap { max-width: 50%; }
 
 /* (C) DRAG-DROP UPLOAD */
 /* (C1) DROP ZONE */
 .updrop {
-    color: #555;
+    /*color: #555;
     font-weight: 700;
     text-align: center;
     padding: 50px 0;
     border-radius: 10px;
-    border: 2px dashed #c9c9c9;
+    border: 2px dashed #c9c9c9;*/
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    ont-size: 1.25rem;
+    background-color: #c8dadf;
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
 }
 .updrop.highlight {
     background: #ffff45;
@@ -46,4 +55,17 @@
 .uppercent {
     position: absolute; top: 0; left: 0;
     display: flex; align-items: center; justify-content: center;
+}
+.downbar {
+    background: #FF0000;
+    width: 0;
+    transition: width 0.5s;
+}
+
+.box__icon {
+    width: 100%;
+    height: 80px;
+    fill: #92b0b3;
+    display: block;
+    margin-bottom: 40px;
 }

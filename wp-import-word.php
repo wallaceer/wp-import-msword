@@ -14,8 +14,4 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-define( 'WPIMPORTWORD_PLUGIN_PLUGIN', __FILE__ );
-define( 'WPIMPORTWORD_PLUGIN_DIR', untrailingslashit( dirname( WPIMPORTWORD_PLUGIN_PLUGIN ) ) );
-
-
-require_once WPIMPORTWORD_PLUGIN_DIR . '/includes/functions.php';
+include __DIR__ . "/includes/ws_load.php";

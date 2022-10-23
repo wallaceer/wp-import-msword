@@ -57,7 +57,7 @@ add_action( 'admin_enqueue_scripts', 'load_wpwordimport_plugin_scripts' );
 function wp_import_word() {
     ?>
     <h1>
-        <?php esc_html_e( 'Welcome to my custom admin page.', 'my-plugin-textdomain' ); ?>
+        <?php esc_html_e( 'Word Import', 'my-plugin-textdomain' ); ?>
     </h1>
     <!-- (B) FILE DROP ZONE -->
     <div id="wp-import-word"></div>
