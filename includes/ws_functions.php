@@ -4,12 +4,14 @@ function ws_word_import() {
     add_menu_page(
         'Word Import',
         'Word Import',
-        'manage_options',
+        'read',
         'wp-import-word',
         'wp_import_word',
         'dashicons-editor-paste-word',
         25
     );
+
+    add_submenu_page( 'wp-import-word', 'Config WP Import Word', 'Configuration', 'manage_options', 'wp-import-word-config', 'wp_import_word_config' );
 }
 
 add_action('admin_menu', 'ws_word_import');
@@ -57,7 +59,7 @@ add_action( 'admin_enqueue_scripts', 'load_wpwordimport_plugin_scripts' );
 function wp_import_word() {
     ?>
     <h1>
-        <?php esc_html_e( 'Word Import', 'my-plugin-textdomain' ); ?>
+        <?php esc_html_e( 'Word Import', 'wp-import-word' ); ?>
     </h1>
     <!-- (B) FILE DROP ZONE -->
     <div id="wp-import-word"></div>
@@ -70,5 +72,14 @@ function wp_import_word() {
             data : { key : "value" } // optional, extra post data
         });
     </script>
+    <?php
+}
+
+
+function wp_import_word_config(){
+    ?>
+    <h1>
+        <?php esc_html_e( 'Word Import Configuration', 'wp-import-word-config' ); ?>
+    </h1>
     <?php
 }
