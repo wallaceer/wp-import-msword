@@ -61,7 +61,7 @@ class ws_import {
     $my_post = array(
         'post_title'    => wp_strip_all_tags( $data['post_title'] ),
         'post_content'  => $data['post_content'],
-        'post_status'   => 'publish',
+        'post_status'   => $data['post_status'],
         'post_author'   => 1
     );
 

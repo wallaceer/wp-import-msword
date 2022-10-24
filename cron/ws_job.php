@@ -33,7 +33,8 @@ foreach($files_collection as $file){
 
         $data = array(
             'post_title' => 'Post from document ' . $file['name'],
-            'post_content' => $content
+            'post_content' => $content,
+            'post_status' => $postStatus
         );
         /**
          * Create post from file
