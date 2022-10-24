@@ -5,11 +5,11 @@ class ws_files
 
     public $result = array();
 
-    public function ws_scandir($dir){
+    public function ws_scandir($dir, $files_type_admitted){
         $files = array_diff(scandir($dir), array('..', '.'));
         foreach ($files as $_file){
             $filetype = $this->ws_get_mimetype($_file);
-            if($filetype === 'application/msword' OR $filetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+            if(in_array($filetype, $files_type_admitted)){
                 //$this->result[] = $_file;
                 $this->result[] = array('name'=>$_file, 'type'=>$filetype);
             }

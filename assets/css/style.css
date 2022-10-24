@@ -56,16 +56,21 @@
     position: absolute; top: 0; left: 0;
     display: flex; align-items: center; justify-content: center;
 }
-.downbar {
-    background: #FF0000;
-    width: 0;
-    transition: width 0.5s;
-}
 
-.box__icon {
+.box_icon {
     width: 100%;
     height: 80px;
     fill: #92b0b3;
     display: block;
     margin-bottom: 40px;
+}
+
+.log{
+    max-width: 90%;
+    height: 400px;
+}
+
+.scrollable-content {
+    height: 380px;
+    overflow-y: auto;
 }
