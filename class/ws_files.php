@@ -98,7 +98,7 @@ class ws_files
 
         if(!is_array($strExplode)) return $this->errorFile = 'Invalid file structure, missing structure definition in plugin configuration.';
         if(!is_array($contentExplode)) return $this->errorFile = 'Invalid file structure, missing separator.';
-        if(is_array($contentExplode) && (count($contentExplode) <= 1 )) return $this->errorFile = 'Invalid file structure, incorrect number of fields '.count($contentExplode).' but expected '.count($strExplode).'.';
+        if(is_array($contentExplode) && (count($contentExplode) <= 1 )) return $this->errorFile = 'Invalid file structure, incorrect number of fields '.count($contentExplode).' expected '.count($strExplode).'.';
         if(is_array($contentExplode) && count($contentExplode) !== count($strExplode)) return $this->errorFile = 'Invalid file structure, number of fields does not match with structure definition in plugin configuration.';
 
         foreach ($contentExplode as $ri=>$re){

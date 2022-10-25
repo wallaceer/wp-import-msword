@@ -141,7 +141,7 @@ function wp_import_word_log(){
     $log = new ws_log();
     $log->logRead();
     $array_content = preg_split("/\r\n|\n|\r/", $log->filecontent);
-    foreach($array_content as $row_content) echo $row_content."<br />";
+    foreach($array_content as $row_content) echo $log->formatLog($row_content)."<br />";
     ?>
         </div>
     </div>

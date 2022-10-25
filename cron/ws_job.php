@@ -35,7 +35,7 @@ foreach($files_collection as $file){
          */
         $file_c->ws_parse_file_content($content, $docSeparator, $docStructure);
         if(count($file_c->docContent) === 0){
-            return $log->logWrite(array('file'=>$file['name'], 'error'=>$file_c->errorFile));
+            return $log->logWrite("ERROR", array('file'=>$file['name'], 'error'=>$file_c->errorFile));
         }
 
         $docExtra = array(
@@ -55,7 +55,7 @@ foreach($files_collection as $file){
             /**
              * Log
              */
-            $log->logWrite(array('file'=>$file['name'], 'post_id'=>$read->post_id));
+            $log->logWrite("INFO", array('file'=>$file['name'], 'post_id'=>$read->post_id));
 
             /**
              * Set meta data from file
@@ -69,7 +69,7 @@ foreach($files_collection as $file){
             /**
              * Log
              */
-            $log->logWrite(array('post_id'=>$read->post_id, 'meta'=>$meta));
+            $log->logWrite("INFO", array('post_id'=>$read->post_id, 'meta'=>$meta));
 
             /**
              * Delete file
@@ -78,12 +78,12 @@ foreach($files_collection as $file){
             /**
              * Log
              */
-            $log->logWrite("Deleted file ".$dir . $file['name']);
+            $log->logWrite("INFO", "Deleted file ".$dir . $file['name']);
 
             return true;
 
         } else {
-            $log->logWrite('Create Post ERROR'.$read->error);
+            $log->logWrite("ERROR", 'Create Post ERROR'.$read->error);
             return $read->error;
         }
 
