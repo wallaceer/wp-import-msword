@@ -68,6 +68,9 @@ function wp_import_word() {
 function register_wp_import_word_settings(){
     register_setting('wp-import-word-settings', 'wp_import_word_dir');
     register_setting('wp-import-word-settings', 'wp_import_word_post_status');
+    register_setting('wp-import-word-settings', 'wp_import_word_separator');
+    register_setting('wp-import-word-settings', 'wp_import_word_structure');
+
 }
 add_action('admin_init', 'register_wp_import_word_settings');
 
@@ -78,7 +81,7 @@ function wp_import_word_config(){
     </h1>
     - directory di destinazione
     - separatore campi per il parsing del documento
-    E' necessario non solo definire il separatore ma anceh la posizione di ogni campo. Ad es.
+    E' necessario non solo definire il separatore ma anche la posizione di ogni campo. Ad es.
     Posizione 0 = titolo articolo
     Posizione 1 = descrizione articolo
     ecc..
@@ -92,19 +95,31 @@ function wp_import_word_config(){
             <legend>Modal content</legend>
             <table class="form-table">
                 <tr>
-                    <th scope="row">Directory to save documents</th>
+                    <th scope="row"><?php echo __('Directory to save documents (only directory name)')?></th>
                     <td>
                         <input type="text" name="wp_import_word_dir" value="<?php echo get_option( 'wp_import_word_dir' ); ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Post status after creation</th>
+                    <th scope="row"><?php echo __('Post status after creation') ?></th>
                     <td>
                         <select name="wp_import_word_post_status">
                             <option value="Publish" <?php if(get_option( 'wp_import_word_post_status' ) === 'Publish') echo 'selected="selected"'?>>Publish</option>
                             <option value="Draft" <?php if(get_option( 'wp_import_word_post_status' ) === 'Draft') echo 'selected="selected"'?>>Draft</option>
                             <option value="Pending" <?php if(get_option( 'wp_import_word_post_status' ) === 'Pending') echo 'selected="selected"'?>>Pending</option>
                         </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><?php echo __('Character separator for document parsing')?></th>
+                    <td>
+                        <input type="text" name="wp_import_word_separator" value="<?php echo get_option( 'wp_import_word_separator' ); ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><?php echo __('String structure. The position of field in the structure define the position in the document')?></th>
+                    <td>
+                        <input type="text" name="wp_import_word_structure" value="<?php echo get_option( 'wp_import_word_structure' ); ?>" />
                     </td>
                 </tr>
             </table>

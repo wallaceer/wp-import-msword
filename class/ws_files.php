@@ -4,6 +4,8 @@ class ws_files
 {
 
     public $result = array();
+    public $errorFile;
+    public $docContent = array();
 
     public function ws_scandir($dir, $files_type_admitted){
         $files = array_diff(scandir($dir), array('..', '.'));
@@ -83,6 +85,28 @@ class ws_files
         return finfo_file(finfo_open(FILEINFO_MIME_TYPE), $filepath);
     }
 
+    /**
+     * Parse file content
+     * @param $content
+     * @param $docSeparator
+     * @param $docStructure
+     * @return array|mixed|string
+     */
+    function ws_parse_file_content($content, $docSeparator, $docStructure){
+        $contentExplode = explode($docSeparator, $content);
+        $strExplode = explode($docSeparator, $docStructure);
+
+        if(!is_array($strExplode)) return $this->errorFile = 'Invalid file structure, missing structure definition in plugin configuration.';
+        if(!is_array($contentExplode)) return $this->errorFile = 'Invalid file structure, missing separator.';
+        if(is_array($contentExplode) && (count($contentExplode) <= 1 )) return $this->errorFile = 'Invalid file structure, incorrect number of fields '.count($contentExplode).' but expected '.count($strExplode).'.';
+        if(is_array($contentExplode) && count($contentExplode) !== count($strExplode)) return $this->errorFile = 'Invalid file structure, number of fields does not match with structure definition in plugin configuration.';
+
+        foreach ($contentExplode as $ri=>$re){
+            $this->docContent[$strExplode[$ri]] = trim($re);
+        }
+        return $this->docContent;
+
+    }
 
     function ws_delete_file($filename){
         return unlink($filename);

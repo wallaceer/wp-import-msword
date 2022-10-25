@@ -16,7 +16,6 @@ $log = new ws_log();
  * Load file collection from working directory
  */
 $files_collection = $file_c->ws_scandir($dir, $files_type_admitted);
-#var_dump($files_collection);exit;
 
 /**
  * Create post for each document
@@ -31,11 +30,23 @@ foreach($files_collection as $file){
             $content = $read->read_docx($dir . $file['name']);
         }
 
-        $data = array(
-            'post_title' => 'Post from document ' . $file['name'],
-            'post_content' => $content,
+        /**
+         * Parse document
+         */
+        $file_c->ws_parse_file_content($content, $docSeparator, $docStructure);
+        if(count($file_c->docContent) === 0){
+            return $log->logWrite(array('file'=>$file['name'], 'error'=>$file_c->errorFile));
+        }
+
+        $docExtra = array(
             'post_status' => $postStatus
         );
+
+        /**
+         * Set of data for WP post
+         */
+        $data = array_merge($file_c->docContent, $docExtra);
+
         /**
          * Create post from file
          */
@@ -50,8 +61,9 @@ foreach($files_collection as $file){
              * Set meta data from file
              */
             $meta = array(
-                'meta_title' => 'meta titolo ' . $file['name'],
-                'meta_description' => 'meta description ' . $file['name']
+                'meta_title' => $file_c->docContent['meta_title'],
+                'meta_description' => $file_c->docContent['meta_description'],
+                'focus_keyword' => 'test'
             );
             $read->ws_update_meta($read->post_id, $meta);
             /**
@@ -68,9 +80,11 @@ foreach($files_collection as $file){
              */
             $log->logWrite("Deleted file ".$dir . $file['name']);
 
+            return true;
+
         } else {
-            echo $read->error;
             $log->logWrite('Create Post ERROR'.$read->error);
+            return $read->error;
         }
 
     }

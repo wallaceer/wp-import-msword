@@ -65,7 +65,7 @@ class ws_import {
         'post_author'   => 1
     );
 
-    // Insert the post into the database
+    // Insert post into database
       $this->post_id = wp_insert_post( $my_post );
       if(!is_wp_error($this->post_id)){
           return $this->post_id;
@@ -76,9 +76,16 @@ class ws_import {
     }
 
 
+    /**
+     * See https://www.wpallimport.com/documentation/yoast-wordpress-seo/
+     * @param $postid
+     * @param $meta
+     * @return void
+     */
     public function ws_update_meta($postid, $meta){
-    update_post_meta( $postid, '_yoast_wpseo_title', $meta['meta_title'] );
-    update_post_meta( $postid, '_yoast_wpseo_metadesc', $meta['meta_description'] );
+        update_post_meta( $postid, '_yoast_wpseo_title', $meta['meta_title'] );
+        update_post_meta( $postid, '_yoast_wpseo_metadesc', $meta['meta_description'] );
+        update_post_meta( $postid, '_yoast_wpseo_focuskw', $meta['focus_keyword'] );
     }
 
 

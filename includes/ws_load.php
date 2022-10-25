@@ -16,7 +16,8 @@ $files_type_admitted = array('application/msword', 'application/vnd.openxmlforma
  */
 $wordDir = get_option('wp_import_word_dir');
 $postStatus = get_option('wp_import_word_post_status');
-
+$docSeparator = get_option('wp_import_word_separator');
+$docStructure = get_option('wp_import_word_structure');
 
 $upload_dir   = wp_upload_dir();
 /**
