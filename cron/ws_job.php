@@ -63,7 +63,7 @@ foreach($files_collection as $file){
             $meta = array(
                 'meta_title' => $file_c->docContent['meta_title'],
                 'meta_description' => $file_c->docContent['meta_description'],
-                'focus_keyword' => 'test'
+                'focus_keyword' => $file_c->docContent['focus_keyword']
             );
             $read->ws_update_meta($read->post_id, $meta);
             /**
