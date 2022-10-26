@@ -65,7 +65,7 @@ function wp_import_word() {
     </script>
     <div class="action_create_posts">
             <div id="button_create_posts">
-                <button id="button_create" value="btn_create" name="button_create"><?php echo __('Create Posts')?></button>
+                <button id="button_create" value="btn_create" name="button_create" class="button"><?php echo __('Create Posts')?></button>
                 <input id="access_token" type="hidden" name="access_token" value="<?php echo wp_get_session_token(); ?>" />
             </div>
             <div id="result_create_posts"></div>
@@ -81,7 +81,8 @@ function register_wp_import_word_settings(){
     register_setting('wp-import-word-settings', 'wp_import_word_post_status');
     register_setting('wp-import-word-settings', 'wp_import_word_separator');
     register_setting('wp-import-word-settings', 'wp_import_word_structure');
-
+    register_setting('wp-import-word-settings', 'wp_import_word_alert');
+    register_setting('wp-import-word-settings', 'wp_import_word_email');
 }
 add_action('admin_init', 'register_wp_import_word_settings');
 
@@ -128,6 +129,18 @@ function wp_import_word_config(){
                     <th scope="row"><?php echo __('String structure. The position of field in the structure define the position in the document')?></th>
                     <td>
                         <input type="text" name="wp_import_word_structure" value="<?php echo get_option( 'wp_import_word_structure' ); ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><?php echo __('Enable email alert for log')?></th>
+                    <td>
+                        <input type="checkbox" name="wp_import_word_alert" value="1" <?php if(get_option( 'wp_import_word_alert' ) == 1){?> checked="checked" <?php }?> />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><?php echo __('Email to send import log')?></th>
+                    <td>
+                        <input type="email" name="wp_import_word_email" value="<?php echo get_option( 'wp_import_word_email' ); ?>" />
                     </td>
                 </tr>
             </table>

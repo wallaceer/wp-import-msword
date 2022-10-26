@@ -97,4 +97,14 @@ foreach($files_collection as $file){
 
 }
 
+/**
+ * Send email with import log to emai contact
+ */
+if($docAlert == 1){
+    wp_mail($docEmail, 'WP Import from Word Log', $exHtmlResult, 'Content-Type: text/html; charset=UTF-8');
+}
+
+/**
+ * Print import log
+ */
 echo $exHtmlResult;

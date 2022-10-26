@@ -18,6 +18,8 @@ $wordDir = get_option('wp_import_word_dir');
 $postStatus = get_option('wp_import_word_post_status');
 $docSeparator = get_option('wp_import_word_separator');
 $docStructure = get_option('wp_import_word_structure');
+$docAlert = get_option('wp_import_word_alert');
+$docEmail = get_option('wp_import_word_email');
 
 $upload_dir   = wp_upload_dir();
 /**
