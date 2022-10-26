@@ -20,8 +20,8 @@ add_action('admin_menu', 'ws_word_import');
 function register_wpwordimport_plugin_scripts() {
 
     wp_register_style( 'wp-import-word-css', plugins_url( 'wp-import-word/assets/css/style.css' ) );
-
     wp_register_script( 'wp-import-word-js', plugins_url( 'wp-import-word/assets/js/functions.js' ) );
+    wp_register_script( 'wp-import-word-js2', plugins_url( 'wp-import-word/assets/js/sfunctions.js' ) );
 
 }
 add_action( 'admin_enqueue_scripts', 'register_wpwordimport_plugin_scripts' );
@@ -38,11 +38,15 @@ function load_wpwordimport_plugin_scripts( $hook ) {
     // Load style & scripts.
     wp_enqueue_style( 'wp-import-word-css' );
     wp_enqueue_script( 'wp-import-word-js' );
+    wp_enqueue_script( 'wp-import-word-js2' );
 
 }
 add_action( 'admin_enqueue_scripts', 'load_wpwordimport_plugin_scripts' );
 
-
+/**
+ * Upload files and import it
+ * @return void
+ */
 function wp_import_word() {
     ?>
     <h1>
@@ -59,6 +63,13 @@ function wp_import_word() {
             data : { key : "value" } // optional, extra post data
         });
     </script>
+    <div class="action_create_posts">
+            <div id="button_create_posts">
+                <button id="button_create" value="btn_create" name="button_create"><?php echo __('Create Posts')?></button>
+                <input id="access_token" type="hidden" name="access_token" value="<?php echo wp_get_session_token(); ?>" />
+            </div>
+            <div id="result_create_posts"></div>
+    </div>
     <?php
 }
 
@@ -74,18 +85,15 @@ function register_wp_import_word_settings(){
 }
 add_action('admin_init', 'register_wp_import_word_settings');
 
+/**
+ * Plugin configuration form
+ * @return void
+ */
 function wp_import_word_config(){
     ?>
     <h1>
         <?php esc_html_e( 'Word Import Configuration', 'wp-import-word-config' ); ?>
     </h1>
-    - directory di destinazione
-    - separatore campi per il parsing del documento
-    E' necessario non solo definire il separatore ma anche la posizione di ogni campo. Ad es.
-    Posizione 0 = titolo articolo
-    Posizione 1 = descrizione articolo
-    ecc..
-    - stato post (draft, published, ...)
     <form method="post" action="options.php">
         <?php
         settings_fields('wp-import-word-settings');
@@ -130,6 +138,10 @@ function wp_import_word_config(){
     <?php
 }
 
+/**
+ * Read log content
+ * @return void
+ */
 function wp_import_word_log(){
     ?>
     <h1>
