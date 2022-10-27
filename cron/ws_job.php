@@ -11,6 +11,7 @@ include __DIR__ . "/../includes/ws_load.php";
 $file_c = new ws_files();
 $read = new ws_import();
 $log = new ws_log();
+$validate = new ws_validate();
 
 $exHtmlResult = '';
 
@@ -100,7 +101,7 @@ foreach($files_collection as $file){
 /**
  * Send email with import log to emai contact
  */
-if($docAlert == 1){
+if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
     wp_mail($docEmail, 'WP Import from Word Log', $exHtmlResult, 'Content-Type: text/html; charset=UTF-8');
 }
 
