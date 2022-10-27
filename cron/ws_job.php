@@ -102,9 +102,20 @@ foreach($files_collection as $file){
  * Send email with import log to emai contact
  */
 if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
-    wp_mail($docEmail, 'WP Import from Word Log', $exHtmlResult, 'Content-Type: text/html; charset=UTF-8');
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+        'From: ' . get_bloginfo( 'name' ) . '<'.get_bloginfo( 'admin_email' ).'>'
+    ];
+    $sent_message = wp_mail($docEmail, 'WP Import from Word Log', $exHtmlResult, $headers);
+    if ( $sent_message ) {
+        // The message was sent.
+        echo 'The test message was sent. Check your email inbox.';
+    } else {
+        // The message was not sent.
+        echo 'The message was not sent!';
+        debug_wpmail($sent_message);
+    }
 }
-
 /**
  * Print import log
  */

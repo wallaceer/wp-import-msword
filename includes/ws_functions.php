@@ -173,3 +173,26 @@ function wp_import_word_log(){
 <?php
 }
 
+/**
+ * Debug wp_mail()
+ */
+if ( ! function_exists('debug_wpmail') ) :
+
+    function debug_wpmail( $result = false ) {
+
+        if ( $result )
+            return;
+
+        global $ts_mail_errors, $phpmailer;
+
+        if ( ! isset($ts_mail_errors) )
+            $ts_mail_errors = array();
+
+        if ( isset($phpmailer) )
+            $ts_mail_errors[] = $phpmailer->ErrorInfo;
+
+        print_r('<pre>');
+        print_r($ts_mail_errors);
+        print_r('</pre>');
+    }
+endif;

@@ -17,8 +17,8 @@ class ws_log{
     public static $logfile = '/var/log/wp_import_word.log';
 
     public function __construct(){
-        if(!is_dir(self::$logfile)){
-            mkdir(self::$logfile, 777);
+        if(!is_file(self::$logfile)){
+            fopen(self::$logfile, "w");
         }
 
     }
