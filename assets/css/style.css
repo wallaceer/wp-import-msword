@@ -74,3 +74,7 @@
     height: 380px;
     overflow-y: auto;
 }
+
+.action_create_posts{
+    margin-top:20px;
+}

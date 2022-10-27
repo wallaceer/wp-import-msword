@@ -14,7 +14,7 @@ $log = new ws_log();
 $validate = new ws_validate();
 
 $exHtmlResult = '';
-
+$exHtmlResultError = '';
 /**
  * Load file collection from working directory
  */
@@ -38,7 +38,7 @@ foreach($files_collection as $file){
          */
         $file_c->ws_parse_file_content($content, $docSeparator, $docStructure);
         if(count($file_c->docContent) === 0){
-            $exHtmlResult .= '<p>ERROR: '.$file['name'].' :: '.$file_c->errorFile.'</p>';
+            $exHtmlResultError .= '<p>ERROR: '.$file['name'].' :: '.$file_c->errorFile.'</p>';
             $log->logWrite("ERROR", array('file'=>$file['name'], 'error'=>$file_c->errorFile));
         }else{
 
@@ -89,7 +89,7 @@ foreach($files_collection as $file){
 
             } else {
                 $log->logWrite("ERROR", 'Create Post ERROR'.$read->error);
-                $exHtmlResult .= '<p>ERROR: '.__('Create post failed with error ').' :: '.$read->error.'</p>';
+                $exHtmlResultError .= '<p>ERROR: '.__('Create post failed with error ').' :: '.$read->error.'</p>';
             }
 
         }
@@ -101,6 +101,7 @@ foreach($files_collection as $file){
 /**
  * Send email with import log to emai contact
  */
+$contentError = ($docAlertOnlyError == 1) ? $exHtmlResultError : $exHtmlResult.$exHtmlResultError;
 if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
     $siteFromName = get_bloginfo( 'name' );
     $siteFromEmail = get_bloginfo( 'admin_email' );
@@ -109,7 +110,7 @@ if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
         "From: $siteFromName <$siteFromEmail>",
         "Cc: $siteFromEmail"
     ];
-    $sent_message = wp_mail($docEmail, 'WP Import from Word Log', $exHtmlResult, $headers);
+    $sent_message = wp_mail($docEmail, 'WP Import from Word Log', $contentError, $headers);
     if ( $sent_message ) {
         // The message was sent.
         echo 'The test message was sent. Check your email inbox.';
@@ -122,4 +123,4 @@ if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
 /**
  * Print import log
  */
-echo $exHtmlResult;
+echo $contentError;

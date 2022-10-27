@@ -59,7 +59,7 @@ function wp_import_word() {
     <script>
         ddup.init({
             target : document.getElementById("wp-import-word"), // target html <div>
-            action : "../wp-content/plugins/wp-import-word/includes/ws_upload.php", // server-side upload handler
+            action : "../wp-content/plugins/wp-import-word/actions/ws_upload.php", // server-side upload handler
             data : { key : "value" } // optional, extra post data
         });
     </script>
@@ -82,6 +82,7 @@ function register_wp_import_word_settings(){
     register_setting('wp-import-word-settings', 'wp_import_word_separator');
     register_setting('wp-import-word-settings', 'wp_import_word_structure');
     register_setting('wp-import-word-settings', 'wp_import_word_alert');
+    register_setting('wp-import-word-settings', 'wp_import_word_alert_only_error');
     register_setting('wp-import-word-settings', 'wp_import_word_email');
 }
 add_action('admin_init', 'register_wp_import_word_settings');
@@ -135,6 +136,12 @@ function wp_import_word_config(){
                     <th scope="row"><?php echo __('Enable email alert for log')?></th>
                     <td>
                         <input type="checkbox" name="wp_import_word_alert" value="1" <?php if(get_option( 'wp_import_word_alert' ) == 1){?> checked="checked" <?php }?> />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><?php echo __('Enable only errors in email alert for log')?></th>
+                    <td>
+                        <input type="checkbox" name="wp_import_word_alert_only_error" value="1" <?php if(get_option( 'wp_import_word_alert_only_error' ) == 1){?> checked="checked" <?php }?> />
                     </td>
                 </tr>
                 <tr>

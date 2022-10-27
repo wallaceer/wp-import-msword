@@ -20,6 +20,7 @@ $postStatus = get_option('wp_import_word_post_status');
 $docSeparator = get_option('wp_import_word_separator');
 $docStructure = get_option('wp_import_word_structure');
 $docAlert = get_option('wp_import_word_alert');
+$docAlertOnlyError = get_option('wp_import_word_alert_only_error');
 $docEmail = get_option('wp_import_word_email');
 
 $upload_dir   = wp_upload_dir();
