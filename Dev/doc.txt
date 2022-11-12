@@ -1,0 +1,198 @@
+-- custom fields --
+https://www.advancedcustomfields.com/resources/update_field/
+https://www.advancedcustomfields.com/resources/update_field/#parameters
+
+-- wp_insert_post --
+https://developer.wordpress.org/reference/functions/wp_insert_post/
+
+-- struttura file word --
+
+    Tipologia Pagina (alfanumerico, tratta o porto) - campo acf
+    Titolo pagina - campo wp
+    slug - campo wp
+    Testo pagine (con eventualmente titoli interni al testo marcati singolarmente come ci siamo detti) - campo wp
+    Pagina genitore - campo wp
+    Template - campo wp
+    Title tag - campo toast
+    Meta description - campo toast
+    Immagine (solo nome file) - campo acf
+    Macroarea (alfanumerico credo di un carattere) - campo acf
+    from (alfanumerico credo di 4 caratteri) - campo acf
+    to (alfanumerico credo di 4 caratteri) - campo acf => VUOTO x Pagine porto
+    A/r (campo che indica se la tratta prevede entrambe le direzioni, generalmente è così quindi sarà un default = true) - campo acf => VUOTO x Pagine porto
+
+
+    I campi macroarea, from e to servirebbero in fase di fase di valorizzazione dell’HTML per estrarre dal db le pagine correlate.
+    Ti faccio degli esempi:
+
+        In una home di macroarea (es. Croazia) tutte le pagine tratte associate che hanno il campo macroarea con la stessa valorizzazione della pagina genitore (la Croazia, anche lei avrebbe questo custom field)
+        In una pagina porto tutte le pagine tratte associate che hanno il campo macroarea e il campo from con la stessa valorizzazione della pagina porto
+        In una pagina tratta tutte le (2) pagine porto associate che hanno il campo macroarea e i campi from e to con la stessa valorizzazione della pagina tratta
+
+
+    In pratica con i campi campi macroarea, from e to si gestirebbe buona parte della navigazione all’interno del sito.
+
+I campi ACF dovrebbero essere questi:
+
+    Tipologia pagina, alfanumerico (da confermare durante la progettazione del Backend perché potremmo farne a meno)
+    Immagine, alfanumerico (conterrà il nome del file, es. immagine.jpg, senza doverne gestire l’upload)
+    Macroarea, alfanumerico di 1 carattere (è casesensitive, il valore deve essere sempre maiuscolo )
+    From, alfanumerico di 4 caratteri (è casesensitive, il valore deve essere sempre maiuscolo )
+    to, alfanumerico di 4 caratteri (è casesensitive, il valore deve essere sempre maiuscolo )
+    A/r, option di default sempre true
+
+    Codice php
+    			if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array(
+    	'key' => 'group_636e532517f82',
+    	'title' => 'Pagina',
+    	'fields' => array(
+    		array(
+    			'key' => 'field_636e53251c164',
+    			'label' => 'Tipologia Pagina',
+    			'name' => 'tipologia_pagina',
+    			'aria-label' => '',
+    			'type' => 'select',
+    			'instructions' => '',
+    			'required' => 0,
+    			'conditional_logic' => 0,
+    			'wrapper' => array(
+    				'width' => '',
+    				'class' => '',
+    				'id' => '',
+    			),
+    			'choices' => array(
+    				'tratta' => 'tratta',
+    				'porto' => 'porto',
+    			),
+    			'default_value' => false,
+    			'return_format' => 'array',
+    			'multiple' => 0,
+    			'allow_null' => 0,
+    			'ui' => 0,
+    			'ajax' => 0,
+    			'placeholder' => '',
+    		),
+    		array(
+    			'key' => 'field_636e54df1c165',
+    			'label' => 'Immagine',
+    			'name' => 'immagine',
+    			'aria-label' => '',
+    			'type' => 'text',
+    			'instructions' => '',
+    			'required' => 0,
+    			'conditional_logic' => 0,
+    			'wrapper' => array(
+    				'width' => '',
+    				'class' => '',
+    				'id' => '',
+    			),
+    			'default_value' => '',
+    			'maxlength' => '',
+    			'placeholder' => '',
+    			'prepend' => '',
+    			'append' => '',
+    		),
+    		array(
+    			'key' => 'field_636e54f71c166',
+    			'label' => 'Macroarea',
+    			'name' => 'macroarea',
+    			'aria-label' => '',
+    			'type' => 'text',
+    			'instructions' => '',
+    			'required' => 0,
+    			'conditional_logic' => 0,
+    			'wrapper' => array(
+    				'width' => '',
+    				'class' => '',
+    				'id' => '',
+    			),
+    			'default_value' => '',
+    			'maxlength' => 1,
+    			'placeholder' => '',
+    			'prepend' => '',
+    			'append' => '',
+    		),
+    		array(
+    			'key' => 'field_636e55111c167',
+    			'label' => 'From',
+    			'name' => 'from',
+    			'aria-label' => '',
+    			'type' => 'text',
+    			'instructions' => '',
+    			'required' => 0,
+    			'conditional_logic' => 0,
+    			'wrapper' => array(
+    				'width' => '',
+    				'class' => '',
+    				'id' => '',
+    			),
+    			'default_value' => '',
+    			'maxlength' => 4,
+    			'placeholder' => '',
+    			'prepend' => '',
+    			'append' => '',
+    		),
+    		array(
+    			'key' => 'field_636e55291c168',
+    			'label' => 'To',
+    			'name' => 'to',
+    			'aria-label' => '',
+    			'type' => 'text',
+    			'instructions' => '',
+    			'required' => 0,
+    			'conditional_logic' => 0,
+    			'wrapper' => array(
+    				'width' => '',
+    				'class' => '',
+    				'id' => '',
+    			),
+    			'default_value' => '',
+    			'maxlength' => 4,
+    			'placeholder' => '',
+    			'prepend' => '',
+    			'append' => '',
+    		),
+    		array(
+    			'key' => 'field_636e553b1c169',
+    			'label' => 'A/r',
+    			'name' => 'ar',
+    			'aria-label' => '',
+    			'type' => 'true_false',
+    			'instructions' => '',
+    			'required' => 0,
+    			'conditional_logic' => 0,
+    			'wrapper' => array(
+    				'width' => '',
+    				'class' => '',
+    				'id' => '',
+    			),
+    			'message' => 'A/r',
+    			'default_value' => 1,
+    			'ui' => 0,
+    			'ui_on_text' => '',
+    			'ui_off_text' => '',
+    		),
+    	),
+    	'location' => array(
+    		array(
+    			array(
+    				'param' => 'post_type',
+    				'operator' => '==',
+    				'value' => 'page',
+    			),
+    		),
+    	),
+    	'menu_order' => 0,
+    	'position' => 'normal',
+    	'style' => 'default',
+    	'label_placement' => 'top',
+    	'instruction_placement' => 'label',
+    	'hide_on_screen' => '',
+    	'active' => true,
+    	'description' => '',
+    	'show_in_rest' => 0,
+    ));
+
+    endif;

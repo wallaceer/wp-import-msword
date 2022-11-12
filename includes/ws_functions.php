@@ -13,6 +13,8 @@ function ws_word_import() {
 
     add_submenu_page( 'wp-import-word', 'Config WP Import Word', 'Configuration', 'manage_options', 'wp-import-word-config', 'wp_import_word_config' );
     add_submenu_page( 'wp-import-word', 'Logs WP Import Word', 'Logs', 'manage_options', 'wp-import-word-log', 'wp_import_word_log' );
+    add_submenu_page( 'wp-import-word', 'Doc WP Import Word', 'Help', 'manage_options', 'wp-import-word-doc', 'wp_import_word_doc' );
+
 }
 add_action('admin_menu', 'ws_word_import');
 
@@ -84,6 +86,10 @@ function register_wp_import_word_settings(){
     register_setting('wp-import-word-settings', 'wp_import_word_alert');
     register_setting('wp-import-word-settings', 'wp_import_word_alert_only_error');
     register_setting('wp-import-word-settings', 'wp_import_word_email');
+    register_setting('wp-import-word-settings', 'wp_import_word_post_type');
+    register_setting('wp-import-word-settings', 'wp_import_word_post_parent');
+    register_setting('wp-import-word-settings', 'wp_import_word_document_parsing');
+    register_setting('wp-import-word-settings', 'wp_import_word_acf_mapping');
 }
 add_action('admin_init', 'register_wp_import_word_settings');
 
@@ -111,6 +117,15 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row"><?php echo __('Post type (Page/Post)') ?></th>
+                    <td>
+                        <select name="wp_import_word_post_type">
+                            <option value="page" <?php if(get_option( 'wp_import_word_post_type' ) === 'page') echo 'selected="selected"'?>>Page</option>
+                            <option value="post" <?php if(get_option( 'wp_import_word_post_type' ) === 'post') echo 'selected="selected"'?>>Post</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row"><?php echo __('Post status after creation') ?></th>
                     <td>
                         <select name="wp_import_word_post_status">
@@ -121,15 +136,33 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row"><?php echo __('Post parent mapping')?></th>
+                    <td>
+                        <textarea name="wp_import_word_post_parent"><?php echo get_option( 'wp_import_word_post_parent' ); ?></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><?php echo __('Enable document parsing')?></th>
+                    <td>
+                        <input type="checkbox" name="wp_import_word_document_parsing" value="1" <?php if(get_option( 'wp_import_word_document_parsing' ) == 1){?> checked="checked" <?php }?> />
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row"><?php echo __('Character separator for document parsing')?></th>
                     <td>
                         <input type="text" name="wp_import_word_separator" value="<?php echo get_option( 'wp_import_word_separator' ); ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('String structure. The position of field in the structure define the position in the document')?></th>
+                    <th scope="row"><?php echo __('String structure. The position of field in the structure define the position in the document. If empty this configuration will not evaluate.')?></th>
                     <td>
                         <input type="text" name="wp_import_word_structure" value="<?php echo get_option( 'wp_import_word_structure' ); ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><?php echo __('String structure for ACF fields: map id acf field with acf name writed in String Structure. If empty this configuration will not evaluate.')?></th>
+                    <td>
+                        <textarea name="wp_import_word_acf_mapping"><?php echo get_option( 'wp_import_word_acf_mapping' ); ?></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -159,6 +192,26 @@ function wp_import_word_config(){
 }
 
 /**
+ * Get post parent ID from Macroarea
+ * @param $macroarea
+ * @param $post_parent
+ * @return mixed
+ */
+function get_post_parent_from_macroarea($macroarea, $post_parent){
+    $_pp = json_decode($post_parent);
+    return $_pp[0]->$macroarea;
+}
+
+/**
+ * Get ACF fields configuration
+ * @param $acfconf
+ * @return array
+ */
+function ws_get_acf_from_config($acfconf){
+    return json_decode($acfconf, true);
+}
+
+/**
  * Read log content
  * @return void
  */
@@ -169,14 +222,37 @@ function wp_import_word_log(){
     </h1>
     <div class="log">
         <div class="scrollable-content">
-    <?php
-    $log = new ws_log();
-    $log->logRead();
-    $array_content = preg_split("/\r\n|\n|\r/", $log->filecontent);
-    foreach($array_content as $row_content) echo $log->formatLog($row_content)."<br />";
-    ?>
+            <?php
+            $log = new ws_log();
+            $log->logRead();
+            $array_content = preg_split("/\r\n|\n|\r/", $log->filecontent);
+            foreach($array_content as $row_content) echo $log->formatLog($row_content)."<br />";
+            ?>
         </div>
     </div>
-<?php
+    <?php
 }
 
+/**
+ * Read log content
+ * @return void
+ */
+function wp_import_word_doc(){
+    ?>
+    <h1>
+        <?php esc_html_e( 'Word Import Documentation', 'wp-import-word-doc' ); ?>
+    </h1>
+    <div class="doc">
+        <div class="scrollable-content">
+            <?php
+            $documentFile = plugin_dir_path( __FILE__ ) . '/../README.md' ;
+            $fileDoc = fopen($documentFile ,"r");
+            $docFilecontent = fread($fileDoc, filesize($documentFile));
+            fclose($fileDoc);
+            $array_content = preg_split("/\r\n|\n|\r/", $docFilecontent);
+            foreach($array_content as $row_content) echo $row_content."<br />";
+            ?>
+        </div>
+    </div>
+    <?php
+}

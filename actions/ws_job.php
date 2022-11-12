@@ -12,6 +12,7 @@ $file_c = new ws_files();
 $read = new ws_import();
 $log = new ws_log();
 $validate = new ws_validate();
+$document = new ws_document();
 
 $exHtmlResult = '';
 $exHtmlResultError = '';
@@ -33,65 +34,102 @@ foreach($files_collection as $file){
             $content = $read->read_docx($dir . $file['name']);
         }
 
-        /**
-         * Parse document
-         */
-        $file_c->ws_parse_file_content($content, $docSeparator, $docStructure);
-        if(count($file_c->docContent) === 0){
-            $exHtmlResultError .= '<p>ERROR: '.$file['name'].' :: '.$file_c->errorFile.'</p>';
-            $log->logWrite("ERROR", array('file'=>$file['name'], 'error'=>$file_c->errorFile));
-        }else{
+        $dataBaseConf = [
+            'post_type' => $postType,
+            'post_status' => $postStatus
+        ];
 
-            $docExtra = array(
-                'post_status' => $postStatus
-            );
+        if($docParsing == 1) {
 
             /**
-             * Set of data for WP post
+             * Parse document
              */
-            $data = array_merge($file_c->docContent, $docExtra);
+            $file_c->ws_parse_file_content($content, $docSeparator, $docStructure);
+            if (count($file_c->docContent) === 0) {
+                $exHtmlResultError .= '<p>ERROR: ' . $file['name'] . ' :: ' . $file_c->errorFile . '</p>';
+                $log->logWrite("ERROR", array('file' => $file['name'], 'error' => $file_c->errorFile));
+            } else {
 
-            /**
-             * Create post from file
-             */
-            $read->ws_insert($data);
-            if (isset($read->post_id)) {
+                $docExtra = array(
+                    'post_parent' => get_post_parent_from_macroarea($file_c->docContent['acf_macroarea'], $postParent)
+                );
+
                 /**
-                 * Log
+                 * Content format
                  */
-                $log->logWrite("INFO", array('file'=>$file['name'], 'post_id'=>$read->post_id));
-                $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created post ').$read->post_id.'</p>';
+                $file_c->docContent['post_content'] = $document->ws_pare_document($file_c->docContent['post_content']);
 
                 /**
-                 * Set meta data from file
+                 * Set of data for WP post
+                 */
+                $data = array_merge($file_c->docContent, $docExtra);
+
+                /**
+                 * Meta tags data
                  */
                 $meta = array(
                     'meta_title' => $file_c->docContent['meta_title'],
                     'meta_description' => $file_c->docContent['meta_description'],
-                    'focus_keyword' => $file_c->docContent['focus_keyword']
+                    'focus_keyword' => $file_c->docContent['focus_keyword'],
+                    'slug' => $file_c->docContent['slug']
                 );
+
+                /**
+                 * ACF data
+                 */
+                $acfFields = ws_get_acf_from_config($acfMapping);
+            }
+        }
+
+        $dataContent = $data ? array_merge($dataBaseConf, $data) : $dataBaseConf;
+        /**
+         * Create post from file
+         */
+        $read->ws_insert($dataContent);
+
+        /**
+         * Add extra fields to post
+         */
+        if (isset($read->post_id)) {
+            /**
+             * Log
+             */
+            $log->logWrite("INFO", array('file'=>$file['name'], 'post_id'=>$read->post_id));
+            $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created post ').$read->post_id.'</p>';
+
+            /**
+             * Set meta data from file
+             */
+            if(isset($meta)){
                 $read->ws_update_meta($read->post_id, $meta);
-                /**
-                 * Log
-                 */
-                $log->logWrite("INFO", array('post_id'=>$read->post_id, 'meta'=>$meta));
-                $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created meta tags for post ').$read->post_id.'</p>';
-
-                /**
-                 * Delete file
-                 */
-                $file_c->ws_delete_file($dir . $file['name']);
-                /**
-                 * Log
-                 */
-                $log->logWrite("INFO", "Deleted file ".$dir . $file['name']);
-                $exHtmlResult .= '<p>INFO: '.__('Deleted file ').$dir.$file['name'].'</p>';
-
-            } else {
-                $log->logWrite("ERROR", 'Create Post ERROR'.$read->error);
-                $exHtmlResultError .= '<p>ERROR: '.__('Create post failed with error ').' :: '.$read->error.'</p>';
             }
 
+            /**
+             * Set ACF fields
+             */
+            if(!empty($acfFields)){
+                $read->ws_update_acf($read->post_id, $acfFields, $data);
+            }
+
+            /**
+             * Log
+             */
+            $log->logWrite("INFO", array('post_id'=>$read->post_id, 'meta'=>$meta));
+            $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created meta tags for post ').$read->post_id.'</p>';
+
+            /**
+             * Delete file
+             */
+            $file_c->ws_delete_file($dir . $file['name']);
+            /**
+             * Log
+             */
+            $log->logWrite("INFO", "Deleted file ".$dir . $file['name']);
+            $exHtmlResult .= '<p>INFO: '.__('Deleted file ').$dir.$file['name'].'</p>';
+
+        } else {
+            $log->logWrite("ERROR", 'Create Post ERROR'.$read->error);
+            $exHtmlResultError .= '<p>ERROR: '.__('Create post failed with error ').' :: '.$read->error.'</p>';
         }
 
     }
