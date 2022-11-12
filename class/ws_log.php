@@ -14,13 +14,17 @@ class ws_log{
     /**
      * @var string
      */
-    public static $logfile = '/var/log/wp_import_word.log';
+    public static string $logfile = 'var/log/wp_import_word.log';
 
     public function __construct(){
-        if(!is_file(self::$logfile)){
-            fopen(self::$logfile, "w");
+        if(!is_file(plugin_dir_path( __FILE__ ) . '/../'.self::$logfile)){
+            $this->logOpen('w');
         }
+        $this->logWrite('INFO', 'pippo2');
+    }
 
+    public function logOpen($type){
+        return fopen(plugin_dir_path( __FILE__ ) . '/../'.self::$logfile, $type);
     }
 
     /**
@@ -30,7 +34,7 @@ class ws_log{
         if(is_array($message)) {
             $message = json_encode($message);
         }
-        $file = fopen(self::$logfile,"a");
+        $file = $this->logOpen('a');
         fwrite($file, "\n" . date('Y-m-d h:i:s') . " :: " . $type . " :: " . $message);
         fclose($file);
     }
@@ -40,8 +44,8 @@ class ws_log{
      * @return false|string
      */
     public function logRead(){
-        $file = fopen(self::$logfile,"r");
-        $this->filecontent = fread($file, filesize(self::$logfile));
+        $file = $this->logOpen('r');
+        $this->filecontent = fread($file, filesize(plugin_dir_path( __FILE__ ) . '/../'.self::$logfile));
         fclose($file);
         return $this->filecontent;
     }
