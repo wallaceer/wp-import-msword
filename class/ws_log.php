@@ -20,7 +20,6 @@ class ws_log{
         if(!is_file(plugin_dir_path( __FILE__ ) . '/../'.self::$logfile)){
             $this->logOpen('w');
         }
-        $this->logWrite('INFO', 'pippo2');
     }
 
     public function logOpen($type){
