@@ -108,16 +108,15 @@ function wp_import_word_config(){
         do_settings_sections('wp-import-word-settings');
         ?>
         <fieldset>
-            <legend>Modal content</legend>
-            <table class="form-table">
+            <table class="table">
                 <tr>
-                    <th scope="row"><?php echo __('Directory to save documents (only directory name)')?></th>
-                    <td>
+                    <th scope="row" class="row"><?php echo __('Directory to save documents (only directory name)')?></th>
+                    <td class="td">
                         <input type="text" name="wp_import_word_dir" value="<?php echo get_option( 'wp_import_word_dir' ); ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('Post type (Page/Post)') ?></th>
+                    <th scope="row" class="row"><?php echo __('Post type (Page/Post)') ?></th>
                     <td>
                         <select name="wp_import_word_post_type">
                             <option value="page" <?php if(get_option( 'wp_import_word_post_type' ) === 'page') echo 'selected="selected"'?>>Page</option>
@@ -126,7 +125,7 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('Post status after creation') ?></th>
+                    <th scope="row" class="row"><?php echo __('Post status after creation') ?></th>
                     <td>
                         <select name="wp_import_word_post_status">
                             <option value="Publish" <?php if(get_option( 'wp_import_word_post_status' ) === 'Publish') echo 'selected="selected"'?>>Publish</option>
@@ -136,49 +135,58 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('Post parent mapping')?></th>
+                    <th scope="row" class="row"><?php echo __('Post parent mapping')?></th>
                     <td>
                         <textarea name="wp_import_word_post_parent"><?php echo get_option( 'wp_import_word_post_parent' ); ?></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('Enable document parsing')?></th>
+                    <th scope="row" class="row"><?php echo __('Enable document parsing')?></th>
                     <td>
-                        <input type="checkbox" name="wp_import_word_document_parsing" value="1" <?php if(get_option( 'wp_import_word_document_parsing' ) == 1){?> checked="checked" <?php }?> />
+                        <label class="switch">
+                            <input type="checkbox" name="wp_import_word_document_parsing" value="1" <?php if(get_option( 'wp_import_word_document_parsing' ) == 1){?> checked="checked" <?php }?> />
+                            <span class="slider round"></span>
+                        </label>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('Character separator for document parsing')?></th>
+                    <th scope="row" class="row"><?php echo __('Character separator for document parsing')?></th>
                     <td>
                         <input type="text" name="wp_import_word_separator" value="<?php echo get_option( 'wp_import_word_separator' ); ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('String structure. The position of field in the structure define the position in the document. If empty this configuration will not evaluate.')?></th>
+                    <th scope="row" class="row"><?php echo __('String structure. The position of field in the structure define the position in the document. If empty this configuration will not evaluate.')?></th>
                     <td>
                         <input type="text" name="wp_import_word_structure" value="<?php echo get_option( 'wp_import_word_structure' ); ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('String structure for ACF fields: map id acf field with acf name writed in String Structure. If empty this configuration will not evaluate.')?></th>
+                    <th scope="row" class="row"><?php echo __('String structure for ACF fields: map id acf field with acf name writed in String Structure. If empty this configuration will not evaluate.')?></th>
                     <td>
                         <textarea name="wp_import_word_acf_mapping"><?php echo get_option( 'wp_import_word_acf_mapping' ); ?></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('Enable email alert for log')?></th>
+                    <th scope="row" class="row"><?php echo __('Enable email alert for log')?></th>
                     <td>
-                        <input type="checkbox" name="wp_import_word_alert" value="1" <?php if(get_option( 'wp_import_word_alert' ) == 1){?> checked="checked" <?php }?> />
+                        <label class="switch">
+                            <input type="checkbox" name="wp_import_word_alert" value="1" <?php if(get_option( 'wp_import_word_alert' ) == 1){?> checked="checked" <?php }?> />
+                            <span class="slider round"></span>
+                        </label>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('Enable only errors in email alert for log')?></th>
+                    <th scope="row" class="row"><?php echo __('Enable only errors in email alert for log')?></th>
                     <td>
-                        <input type="checkbox" name="wp_import_word_alert_only_error" value="1" <?php if(get_option( 'wp_import_word_alert_only_error' ) == 1){?> checked="checked" <?php }?> />
+                        <label class="switch">
+                            <input type="checkbox" name="wp_import_word_alert_only_error" value="1" <?php if(get_option( 'wp_import_word_alert_only_error' ) == 1){?> checked="checked" <?php }?> />
+                            <span class="slider round"></span>
+                        </label>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php echo __('Email to send import log')?></th>
+                    <th scope="row" class="row"><?php echo __('Email to send import log')?></th>
                     <td>
                         <input type="email" name="wp_import_word_email" value="<?php echo get_option( 'wp_import_word_email' ); ?>" />
                     </td>
