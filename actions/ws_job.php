@@ -70,8 +70,7 @@ foreach($files_collection as $file){
                 $meta = array(
                     'meta_title' => $file_c->docContent['meta_title'],
                     'meta_description' => $file_c->docContent['meta_description'],
-                    'focus_keyword' => $file_c->docContent['focus_keyword'],
-                    'slug' => $file_c->docContent['slug']
+                    'focus_keyword' => $file_c->docContent['focus_keyword']
                 );
 
                 /**
@@ -82,6 +81,7 @@ foreach($files_collection as $file){
         }
 
         $dataContent = $data ? array_merge($dataBaseConf, $data) : $dataBaseConf;
+
         /**
          * Create post from file
          */

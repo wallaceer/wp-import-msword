@@ -70,7 +70,8 @@ class ws_import {
         'post_author'   => 1,
         #'guid' => $data['guid'],
         'post_type' => $data['post_type'],
-        'post_parent' => $data['post_parent']
+        'post_parent' => $data['post_parent'],
+        'post_name' => $data['slug']
     );
 
       $this->post_id = wp_insert_post( $my_post );
