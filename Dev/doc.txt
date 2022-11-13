@@ -196,3 +196,11 @@ I campi ACF dovrebbero essere questi:
     ));
 
     endif;
+
+
+
+POST PARENT MAPPING
+[{"E":1,"C":2,"S":3,"T":4,"G":5,"P":6,"N":7,"D":8,"TUNI":9,"MARO":1,"ESPA":2,"BALE":3,"GREC":4,"ALBA":5,"CROA":6,"EOLI":7,"EGAD":7,"PELA":7,"USTI":7,"PANT":7,"CAPR":8,"SORR":8,"POSI":8,"AMAL":8,"ISCH":8,"PROC":8,"CPRA":9,"PIAN":9}]
+
+String structure. The position of field in the structure define the position in the document
+acf_tipologia_pagina#page_template#post_parent#post_title#post_abstract#post_content#meta_title#meta_description#focus_keyword#acf_immagine#acf_macroarea#acf_from#acf_to#acf_ar
