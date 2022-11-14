@@ -29,7 +29,7 @@ class ws_import {
           zip_entry_close($zip_entry);
       }
       zip_close($zip);
-      $content = str_replace('</w:r></w:p></w:tc><w:tc>', "<br /> ", $content);
+      $content = str_replace('</w:r></w:p></w:tc><w:tc>', "<br> ", $content);
       $content = str_replace('</w:r></w:p>', "\r\n", $content);
       $striped_content = strip_tags($content);
 
@@ -65,7 +65,7 @@ class ws_import {
     public function ws_insert($data){
     $my_post = array(
         'post_title'    => wp_strip_all_tags( $data['post_title'] ),
-        'post_content'  => $data['post_content'],
+        'post_content'  => trim($data['post_content']),
         'post_status'   => $data['post_status'],
         'post_author'   => 1,
         #'guid' => $data['guid'],

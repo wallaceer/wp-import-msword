@@ -57,7 +57,7 @@ foreach($files_collection as $file){
                 /**
                  * Content format
                  */
-                $file_c->docContent['post_content'] = $document->ws_pare_document($file_c->docContent['post_content']);
+                $file_c->docContent['post_content'] = $document->ws_parse_document($file_c->docContent['post_content']);
 
                 /**
                  * Set of data for WP post
