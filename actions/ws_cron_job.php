@@ -1,5 +1,10 @@
 <?php
 /**
+ * Command to run (commands are executed via sh, urls via wget)
+ * e.g. /var/www/clients/clientX/webY/myscript.sh or https://www.mydomain.com/path/script.php, you can use [web_root] placeholder that is replaced by /var/www/clients/clientX/webY/web.
+ */
+
+/**
  * WP Initialize
  */
 include __DIR__ . "/../includes/ws_load.php";
@@ -151,14 +156,15 @@ if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
     $sent_message = wp_mail($docEmail, 'WP Import from Word Log', $contentError, $headers);
     if ( $sent_message ) {
         // The message was sent.
-        echo 'The test message was sent. Check your email inbox.';
+        $log->logWrite('SUCCESS','The test message was sent. Check your email inbox.');
     } else {
         // The message was not sent.
-        echo 'The message was not sent!';
-        $log->debug_wpmail($sent_message, true);
+        $log->logWrite('ERROR', 'The message was not sent!');
+        $log->logWrite('ERROR', $log->debug_wpmail($sent_message));
     }
 }
 /**
  * Print import log
  */
-echo $contentError;
+if(strlen($contentError) > 1)
+    $log->logWrite('INFO',  $contentError);

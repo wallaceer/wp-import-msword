@@ -66,7 +66,7 @@ class ws_log{
      * @param $result
      * @return void
      */
-    function debug_wpmail( $result = false ) {
+    function debug_wpmail( $result = false, $printHtmlError = false ) {
 
         if ( $result )
             return;
@@ -79,9 +79,12 @@ class ws_log{
         if ( isset($phpmailer) )
             $ts_mail_errors[] = $phpmailer->ErrorInfo;
 
-        print_r('<pre>');
-        print_r($ts_mail_errors);
-        print_r('</pre>');
+        if($printHtmlError){
+            print_r('<pre>');
+            print_r($ts_mail_errors);
+            print_r('</pre>');
+        }
+
     }
 
 }
