@@ -71,7 +71,8 @@ class ws_import {
         #'guid' => $data['guid'],
         'post_type' => $data['post_type'],
         'post_parent' => $data['post_parent'],
-        'post_name' => $data['slug']
+        'post_name' => $data['slug'],
+        'page_template' => $data['acf_tipologia_pagina']
     );
 
       $this->post_id = wp_insert_post( $my_post );
