@@ -23,3 +23,124 @@ pippo
 2022-11-15 08:40:43 :: INFO :: {"file":"articolo-test.docx","post_id":235}
 2022-11-15 08:40:43 :: INFO :: {"post_id":235,"meta":{"meta_title":"Traghetto Civitavecchia Cagliari: costo biglietti, orari e prezzi nave","meta_description":"Traghetto Civitavecchia Cagliari: risparmia sul costo biglietto grazie alle offerte online per le tratte verso la Sardegna.","focus_keyword":null}}
 2022-11-15 08:40:43 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/articolo-test.docx
+2023-02-20 02:51:49 :: ERROR :: {"file":"20221115_porto_cagliari_ita.docx","error":"Invalid file structure, number of fields does not match with structure definition in plugin configuration, found 11 expected 12."}
+2023-02-20 02:51:49 :: INFO :: {"file":"20221115_porto_cagliari_ita.docx","post_id":236}
+2023-02-20 02:51:49 :: INFO :: {"post_id":236,"meta":null}
+2023-02-20 02:51:49 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221115_porto_cagliari_ita.docx
+2023-02-20 04:50:30 :: INFO :: {"file":"20221115_porto_cagliari_ita.docx","post_id":237}
+2023-02-20 04:50:30 :: INFO :: {"post_id":237,"meta":{"meta_title":"Traghetti Cagliari Sicilia","meta_description":"Traghetti Cagliari Sicilia: orari navi, costo dei biglietti e regole d\u2019imbarco. Compara i prezzi e acquista online.","focus_keyword":null}}
+2023-02-20 04:50:30 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221115_porto_cagliari_ita.docx
+2023-02-20 04:52:29 :: INFO :: {"file":"20221115_porto_cagliari_ita.docx","post_id":244}
+2023-02-20 04:52:29 :: INFO :: {"post_id":244,"meta":{"meta_title":"Traghetti Cagliari Sicilia","meta_description":"Traghetti Cagliari Sicilia: orari navi, costo dei biglietti e regole d\u2019imbarco. Compara i prezzi e acquista online.","focus_keyword":null}}
+2023-02-20 04:52:29 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221115_porto_cagliari_ita.docx
+2023-02-25 03:21:57 :: INFO :: {"file":"20221115_porto_cagliari_ita.docx","post_id":254}
+2023-02-25 03:21:57 :: INFO :: {"post_id":254,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:57 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221115_porto_cagliari_ita.docx
+2023-02-25 03:21:57 :: INFO :: {"file":"20221117_tratta_civitavecchia_palermo_ita.docx","post_id":255}
+2023-02-25 03:21:57 :: INFO :: {"post_id":255,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:57 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221117_tratta_civitavecchia_palermo_ita.docx
+2023-02-25 03:21:57 :: INFO :: {"file":"20221118_tratta_cagliari_palermo_ita.docx","post_id":256}
+2023-02-25 03:21:57 :: INFO :: {"post_id":256,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:57 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221118_tratta_cagliari_palermo_ita.docx
+2023-02-25 03:21:57 :: INFO :: {"file":"20221118_tratta_genova_palermo_ita.docx","post_id":257}
+2023-02-25 03:21:57 :: INFO :: {"post_id":257,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:57 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221118_tratta_genova_palermo_ita.docx
+2023-02-25 03:21:57 :: INFO :: {"file":"20221118_tratta_livorno_palermo_ita.docx","post_id":258}
+2023-02-25 03:21:57 :: INFO :: {"post_id":258,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:57 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221118_tratta_livorno_palermo_ita.docx
+2023-02-25 03:21:57 :: INFO :: {"file":"20221118_tratta_milazzo_palermo_ita.docx","post_id":259}
+2023-02-25 03:21:57 :: INFO :: {"post_id":259,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:57 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221118_tratta_milazzo_palermo_ita.docx
+2023-02-25 03:21:57 :: INFO :: {"file":"20221118_tratta_napoli_palermo_ita.docx","post_id":260}
+2023-02-25 03:21:57 :: INFO :: {"post_id":260,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:57 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221118_tratta_napoli_palermo_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221118_tratta_salerno_palermo_ita.docx","post_id":261}
+2023-02-25 03:21:58 :: INFO :: {"post_id":261,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221118_tratta_salerno_palermo_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221121_tratta_civitavecchia_termini_imerese_ita.docx","post_id":262}
+2023-02-25 03:21:58 :: INFO :: {"post_id":262,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221121_tratta_civitavecchia_termini_imerese_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221121_tratta_napoli_termini_imerese_ita.docx","post_id":263}
+2023-02-25 03:21:58 :: INFO :: {"post_id":263,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221121_tratta_napoli_termini_imerese_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221121_tratta_salerno_catania_ita.docx","post_id":264}
+2023-02-25 03:21:58 :: INFO :: {"post_id":264,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221121_tratta_salerno_catania_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221121_tratta_salerno_messina_ita.docx","post_id":265}
+2023-02-25 03:21:58 :: INFO :: {"post_id":265,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221121_tratta_salerno_messina_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221121_tratta_villa_san_giovanni_messina_ita.docx","post_id":266}
+2023-02-25 03:21:58 :: INFO :: {"post_id":266,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221121_tratta_villa_san_giovanni_messina_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221122_macroarea_sicilia_ita.docx","post_id":267}
+2023-02-25 03:21:58 :: INFO :: {"post_id":267,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221122_macroarea_sicilia_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221122_tratta_napoli_milazzo_ita.docx","post_id":268}
+2023-02-25 03:21:58 :: INFO :: {"post_id":268,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221122_tratta_napoli_milazzo_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221122_tratta_napoli_trapani_ita.docx","post_id":269}
+2023-02-25 03:21:58 :: INFO :: {"post_id":269,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221122_tratta_napoli_trapani_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221122_tratta_reggio_calabria_messina_ita.docx","post_id":270}
+2023-02-25 03:21:58 :: INFO :: {"post_id":270,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221122_tratta_reggio_calabria_messina_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221122_tratta_salerno_catania_ita.docx","post_id":271}
+2023-02-25 03:21:58 :: INFO :: {"post_id":271,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221122_tratta_salerno_catania_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221122_tratta_vibo_valentia_milazzo_ita.docx","post_id":272}
+2023-02-25 03:21:58 :: INFO :: {"post_id":272,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221122_tratta_vibo_valentia_milazzo_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221125_porto_civitavecchia_ita.docx","post_id":273}
+2023-02-25 03:21:58 :: INFO :: {"post_id":273,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221125_porto_civitavecchia_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221125_porto_genova_ita.docx","post_id":274}
+2023-02-25 03:21:58 :: INFO :: {"post_id":274,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221125_porto_genova_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221128_porto_catania_ita.docx","post_id":275}
+2023-02-25 03:21:58 :: INFO :: {"post_id":275,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221128_porto_catania_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221128_porto_livorno_ita.docx","post_id":276}
+2023-02-25 03:21:58 :: INFO :: {"post_id":276,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221128_porto_livorno_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221128_porto_napoli_ita.docx","post_id":277}
+2023-02-25 03:21:58 :: INFO :: {"post_id":277,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221128_porto_napoli_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221128_porto_reggio_calabria_ita.docx","post_id":278}
+2023-02-25 03:21:58 :: INFO :: {"post_id":278,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221128_porto_reggio_calabria_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221128_porto_salerno_ita.docx","post_id":279}
+2023-02-25 03:21:58 :: INFO :: {"post_id":279,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221128_porto_salerno_ita.docx
+2023-02-25 03:21:58 :: INFO :: {"file":"20221128_porto_vibo_valentia_ita.docx","post_id":280}
+2023-02-25 03:21:58 :: INFO :: {"post_id":280,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:58 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221128_porto_vibo_valentia_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221128_porto_villa_san_giovanni_ita.docx","post_id":281}
+2023-02-25 03:21:59 :: INFO :: {"post_id":281,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221128_porto_villa_san_giovanni_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221129_porto_marsala_ita.docx","post_id":282}
+2023-02-25 03:21:59 :: INFO :: {"post_id":282,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221129_porto_marsala_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221129_porto_messina_ita.docx","post_id":283}
+2023-02-25 03:21:59 :: INFO :: {"post_id":283,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221129_porto_messina_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221129_porto_milazzo_ita.docx","post_id":284}
+2023-02-25 03:21:59 :: INFO :: {"post_id":284,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221129_porto_milazzo_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221129_porto_palermo_ita.docx","post_id":285}
+2023-02-25 03:21:59 :: INFO :: {"post_id":285,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221129_porto_palermo_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221129_porto_porto_empedocle_ita.docx","post_id":286}
+2023-02-25 03:21:59 :: INFO :: {"post_id":286,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221129_porto_porto_empedocle_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221129_porto_pozzallo_ita.docx","post_id":287}
+2023-02-25 03:21:59 :: INFO :: {"post_id":287,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221129_porto_pozzallo_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221129_porto_termini_imerese_ita.docx","post_id":288}
+2023-02-25 03:21:59 :: INFO :: {"post_id":288,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221129_porto_termini_imerese_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221129_tratta_napoli_catania_ita.docx","post_id":289}
+2023-02-25 03:21:59 :: INFO :: {"post_id":289,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221129_tratta_napoli_catania_ita.docx
+2023-02-25 03:21:59 :: INFO :: {"file":"20221201_porto_trapani_ita.docx","post_id":290}
+2023-02-25 03:21:59 :: INFO :: {"post_id":290,"meta":{"meta_title":true,"meta_description":true,"focus_keyword":false}}
+2023-02-25 03:21:59 :: INFO :: Deleted file /var/www/html/wp-content/uploads/word3/20221201_porto_trapani_ita.docx

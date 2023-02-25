@@ -50,10 +50,6 @@ foreach($files_collection as $file){
                 $log->logWrite("ERROR", array('file' => $file['name'], 'error' => $file_c->errorFile));
             } else {
 
-                $docExtra = array(
-                    'post_parent' => get_post_parent_from_macroarea($file_c->docContent['acf_macroarea'], $postParent)
-                );
-
                 /**
                  * Content format
                  */
@@ -62,15 +58,23 @@ foreach($files_collection as $file){
                 /**
                  * Set of data for WP post
                  */
-                $data = array_merge($file_c->docContent, $docExtra);
+                if(strlen($postParent) > 0){
+                    $docExtra = array(
+                        'post_parent' => get_post_parent_from_macroarea($file_c->docContent['acf_macroarea'], $postParent)
+                    );
+                    $data = array_merge($file_c->docContent, $docExtra);
+                }else{
+                    $data = $file_c->docContent;
+                }
+
 
                 /**
                  * Meta tags data
                  */
                 $meta = array(
-                    'meta_title' => $file_c->docContent['meta_title'],
-                    'meta_description' => $file_c->docContent['meta_description'],
-                    'focus_keyword' => $file_c->docContent['focus_keyword']
+                    'meta_title' => isset($file_c->docContent['meta_title']) ?? '',
+                    'meta_description' => isset($file_c->docContent['meta_description']) ?? '',
+                    'focus_keyword' => isset($file_c->docContent['focus_keyword']) ?? ''
                 );
 
                 /**

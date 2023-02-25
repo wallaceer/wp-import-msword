@@ -70,7 +70,7 @@ class ws_import {
         'post_author'   => 1,
         #'guid' => $data['guid'],
         'post_type' => $data['post_type'],
-        'post_parent' => $data['post_parent'],
+        'post_parent' => isset($data['post_parent']) ?? '',
         'post_name' => $data['slug'],
         'page_template' => $data['acf_tipologia_pagina']
     );
@@ -96,7 +96,7 @@ class ws_import {
             update_post_meta( $postid, '_yoast_wpseo_title', $meta['meta_title'] );
             update_post_meta( $postid, '_yoast_wpseo_metadesc', $meta['meta_description'] );
             update_post_meta( $postid, '_yoast_wpseo_focuskw', $meta['focus_keyword'] );
-            update_post_meta( $postid, '_yoast_wpseo_canonical', $meta['slug']);
+            update_post_meta( $postid, '_yoast_wpseo_canonical', (isset($meta['slug']) ?? ''));
         }
     }
 
