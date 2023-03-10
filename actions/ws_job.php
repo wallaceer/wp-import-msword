@@ -57,10 +57,11 @@ foreach($files_collection as $file){
 
                 /**
                  * Set of data for WP post
+                 * Get page parent ID
                  */
                 if(strlen($postParent) > 0){
                     $docExtra = array(
-                        'post_parent' => get_post_parent_from_macroarea($file_c->docContent['acf_macroarea'], $postParent)
+                        'post_parent' => (int) get_post_parent_from_macroarea($file_c->docContent['acf_macroarea'], $postParent)
                     );
                     $data = array_merge($file_c->docContent, $docExtra);
                 }else{
@@ -85,6 +86,7 @@ foreach($files_collection as $file){
         }
 
         $dataContent = $data ? array_merge($dataBaseConf, $data) : $dataBaseConf;
+
 
         /**
          * Create post from file

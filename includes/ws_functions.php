@@ -206,8 +206,8 @@ function wp_import_word_config(){
  * @return mixed
  */
 function get_post_parent_from_macroarea($macroarea, $post_parent){
-    $_pp = json_decode($post_parent);
-    return $_pp[0]->$macroarea;
+    $_pp = json_decode($post_parent, true);
+    return $_pp[$macroarea];
 }
 
 /**
