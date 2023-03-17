@@ -72,7 +72,7 @@ class ws_import {
         'post_type' => $data['post_type'],
         'post_parent' => $data['post_parent'] ?? 0,
         'post_name' => $data['slug'],
-        'page_template' => wp_strip_all_tags($data['acf_tipologia_pagina'].'.php')
+        'page_template' => wp_strip_all_tags($data['acf_tipologia_pagina']).'.php'
     );
 
       $this->post_id = wp_insert_post( $my_post );
