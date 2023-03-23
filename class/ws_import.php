@@ -127,4 +127,39 @@ class ws_import {
         }
     }
 
+    /**
+     * Extract exact position of a string
+     * @param $haystack
+     * @param $needle
+     * @param $number
+     * @return false|int
+     */
+    public function strposX($haystack, $needle, $number = 0)
+    {
+        return strpos($haystack, $needle,
+            $number > 1 ?
+                $this->strposX($haystack, $needle, $number - 1) + strlen($needle) : 0
+        );
+    }
+
+    /**
+     * Split content in "number_of_occurrence" occurrences
+     * @param $acfFields
+     * @param $content
+     * @param $needle
+     * @param $number_of_occurrence
+     * @return array
+     */
+    public function fb24_split_content($acfFields, $content, $needle, $number_of_occurrence){
+        $acfFields_res = [];
+        if($acfFields['contenuto_parte_1'] && $acfFields['contenuto_parte_2']){
+            $h2pos = $this->strposX($content, $needle, $number_of_occurrence);
+            $acfFields_res = [
+                        'contenuto_parte_1' => substr($content, 0, $h2pos-1),
+                        'contenuto_parte_2' => substr($content, $h2pos, strlen($content))
+            ];
+        }
+        return $acfFields_res;
+    }
+
 }

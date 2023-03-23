@@ -101,7 +101,7 @@ foreach($files_collection as $file){
              * Log
              */
             $log->logWrite("INFO", array('file'=>$file['name'], 'post_id'=>$read->post_id));
-            $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created post ').$read->post_id.'</p>';
+            $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created post ').'<a href="/wp-admin/post.php?post=773&action=edit" target="_blank">'.$read->post_id.'</a></p>';
 
             /**
              * Set meta data from file
@@ -114,6 +114,16 @@ foreach($files_collection as $file){
              * Set ACF fields
              */
             if(!empty($acfFields)){
+                //If exist contenuto_parte_1 and contenuto_parte_2
+                //Split content by h2
+                //Set each part of splitted content into contenuto_parte_1 and contenuto_parte_2
+                if($acfFields['contenuto_parte_1'] && $acfFields['contenuto_parte_2']){
+                    $acfFieldsContent = [$acfFields['contenuto_parte_1'],$acfFields['contenuto_parte_2']];
+                    $splittedContent = $read->fb24_split_content($acfFields, $data['post_content'], '<h2>', 2);
+                    $data['contenuto_parte_1'] = $splittedContent['contenuto_parte_1'];
+                    $data['contenuto_parte_2'] = $splittedContent['contenuto_parte_2'];
+                }
+
                 $read->ws_update_acf($read->post_id, $acfFields, $data);
             }
 
