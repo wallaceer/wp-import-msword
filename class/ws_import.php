@@ -150,7 +150,7 @@ class ws_import {
      * @param $number_of_occurrence
      * @return array
      */
-    public function fb24_split_content($acfFields, $content, $needle, $number_of_occurrence){
+    public function split_content($acfFields, $content, $needle, $number_of_occurrence){
         $acfFields_res = [];
         if($acfFields['contenuto_parte_1'] && $acfFields['contenuto_parte_2']){
             $h2pos = $this->strposX($content, $needle, $number_of_occurrence);

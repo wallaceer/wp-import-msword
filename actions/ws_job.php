@@ -119,7 +119,7 @@ foreach($files_collection as $file){
                 //Set each part of splitted content into contenuto_parte_1 and contenuto_parte_2
                 if($acfFields['contenuto_parte_1'] && $acfFields['contenuto_parte_2']){
                     $acfFieldsContent = [$acfFields['contenuto_parte_1'],$acfFields['contenuto_parte_2']];
-                    $splittedContent = $read->fb24_split_content($acfFields, $data['post_content'], '<h2>', 2);
+                    $splittedContent = $read->split_content($acfFields, $data['post_content'], '<h2>', 2);
                     $data['contenuto_parte_1'] = $splittedContent['contenuto_parte_1'];
                     $data['contenuto_parte_2'] = $splittedContent['contenuto_parte_2'];
                 }
