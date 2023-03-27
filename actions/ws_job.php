@@ -26,6 +26,9 @@ $files_collection = $file_c->ws_scandir($dir, $files_type_admitted);
  */
 foreach($files_collection as $file){
 
+    $content = null;
+    $data = [];
+
     if(in_array($file['type'], $files_type_admitted)) {
 
         if ($file['type'] === 'application/msword') {
@@ -85,68 +88,74 @@ foreach($files_collection as $file){
             }
         }
 
-        $dataContent = $data ? array_merge($dataBaseConf, $data) : $dataBaseConf;
-
-
         /**
-         * Create post from file
+         * Check data and Create post
          */
-        $read->ws_insert($dataContent);
+        if(count($data)>0){
+            $dataContent = $data ? array_merge($dataBaseConf, $data) : $dataBaseConf;
 
-        /**
-         * Add extra fields to post
-         */
-        if (isset($read->post_id)) {
-            /**
-             * Log
-             */
-            $log->logWrite("INFO", array('file'=>$file['name'], 'post_id'=>$read->post_id));
-            $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created post ').'<a href="/wp-admin/post.php?post=773&action=edit" target="_blank">'.$read->post_id.'</a></p>';
 
             /**
-             * Set meta data from file
+             * Create post from file
              */
-            if(isset($meta)){
-                $read->ws_update_meta($read->post_id, $meta);
-            }
+            $read->ws_insert($dataContent);
 
             /**
-             * Set ACF fields
+             * Add extra fields to post
              */
-            if(!empty($acfFields)){
-                //If exist contenuto_parte_1 and contenuto_parte_2
-                //Split content by h2
-                //Set each part of splitted content into contenuto_parte_1 and contenuto_parte_2
-                if($acfFields['contenuto_parte_1'] && $acfFields['contenuto_parte_2']){
-                    $acfFieldsContent = [$acfFields['contenuto_parte_1'],$acfFields['contenuto_parte_2']];
-                    $splittedContent = $read->split_content($acfFields, $data['post_content'], '<h2>', 2);
-                    $data['contenuto_parte_1'] = $splittedContent['contenuto_parte_1'];
-                    $data['contenuto_parte_2'] = $splittedContent['contenuto_parte_2'];
+            if (isset($read->post_id)) {
+                /**
+                 * Log
+                 */
+                $log->logWrite("INFO", array('file'=>$file['name'], 'post_id'=>$read->post_id));
+                $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created post ').'<a href="/wp-admin/post.php?post='.$read->post_id.'&action=edit" target="_blank">'.$read->post_id.'</a></p>';
+
+                /**
+                 * Set meta data from file
+                 */
+                if(isset($meta)){
+                    $read->ws_update_meta($read->post_id, $meta);
                 }
 
-                $read->ws_update_acf($read->post_id, $acfFields, $data);
+                /**
+                 * Set ACF fields
+                 */
+                if(!empty($acfFields)){
+                    //If exist contenuto_parte_1 and contenuto_parte_2
+                    //Split content by h2
+                    //Set each part of splitted content into contenuto_parte_1 and contenuto_parte_2
+                    if($acfFields['contenuto_parte_1'] && $acfFields['contenuto_parte_2']){
+                        $acfFieldsContent = [$acfFields['contenuto_parte_1'],$acfFields['contenuto_parte_2']];
+                        $splittedContent = $read->split_content($acfFields, $data['post_content'], '<h2>', 2);
+                        $data['contenuto_parte_1'] = $splittedContent['contenuto_parte_1'];
+                        $data['contenuto_parte_2'] = $splittedContent['contenuto_parte_2'];
+                    }
+
+                    $read->ws_update_acf($read->post_id, $acfFields, $data);
+                }
+
+                /**
+                 * Log
+                 */
+                $log->logWrite("INFO", array('post_id'=>$read->post_id, 'meta'=>$meta));
+                $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created meta tags for post ').$read->post_id.'</p>';
+
+                /**
+                 * Delete file
+                 */
+                $file_c->ws_delete_file($dir . $file['name']);
+                /**
+                 * Log
+                 */
+                $log->logWrite("INFO", "Deleted file ".$dir . $file['name']);
+                $exHtmlResult .= '<p>INFO: '.__('Deleted file ').$dir.$file['name'].'</p>';
+
+            } else {
+                $log->logWrite("ERROR", 'Create Post ERROR'.$read->error);
+                $exHtmlResultError .= '<p>ERROR: '.__('Create post failed with error ').' :: '.$read->error.'</p>';
             }
-
-            /**
-             * Log
-             */
-            $log->logWrite("INFO", array('post_id'=>$read->post_id, 'meta'=>$meta));
-            $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created meta tags for post ').$read->post_id.'</p>';
-
-            /**
-             * Delete file
-             */
-            $file_c->ws_delete_file($dir . $file['name']);
-            /**
-             * Log
-             */
-            $log->logWrite("INFO", "Deleted file ".$dir . $file['name']);
-            $exHtmlResult .= '<p>INFO: '.__('Deleted file ').$dir.$file['name'].'</p>';
-
-        } else {
-            $log->logWrite("ERROR", 'Create Post ERROR'.$read->error);
-            $exHtmlResultError .= '<p>ERROR: '.__('Create post failed with error ').' :: '.$read->error.'</p>';
         }
+
 
     }
 

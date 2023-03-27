@@ -18,6 +18,7 @@ class ws_files
             //$this->result[] = array('name'=>$_file, 'type'=>$this->get_mimetype($_file));
         }
 
+        #var_dump($this->result);exit;
         return $this->result;
     }
 
@@ -93,6 +94,7 @@ class ws_files
      * @return array|mixed|string
      */
     function ws_parse_file_content($content, $docSeparator, $docStructure){
+        $this->docContent = [];
         $contentExplode = explode($docSeparator, $content);
         $strExplode = explode($docSeparator, $docStructure);
 
