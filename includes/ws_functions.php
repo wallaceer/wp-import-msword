@@ -70,7 +70,7 @@ function wp_import_word() {
                 <button id="button_create" value="btn_create" name="button_create" class="button"><?php echo __('Create Posts')?></button>
                 <input id="access_token" type="hidden" name="access_token" value="<?php echo wp_get_session_token(); ?>" />
             </div>
-            <div id="result_create_posts"></div>
+            <div id="result_create_posts" class="result_create_posts"></div>
     </div>
     <?php
 }
@@ -168,7 +168,7 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Enable email alert for log')?></th>
+                    <th scope="row" class="row"><?php echo __('Show Info/Error')?></th>
                     <td>
                         <label class="switch">
                             <input type="checkbox" name="wp_import_word_alert" value="1" <?php if(get_option( 'wp_import_word_alert' ) == 1){?> checked="checked" <?php }?> />
@@ -177,7 +177,7 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Enable only errors in email alert for log')?></th>
+                    <th scope="row" class="row"><?php echo __('Show only errors')?></th>
                     <td>
                         <label class="switch">
                             <input type="checkbox" name="wp_import_word_alert_only_error" value="1" <?php if(get_option( 'wp_import_word_alert_only_error' ) == 1){?> checked="checked" <?php }?> />

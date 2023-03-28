@@ -161,10 +161,18 @@ foreach($files_collection as $file){
 
 }
 
+$isError = strlen(trim($exHtmlResultError))>0 ? ' with error. See below please.' : ' without error.';
+$isErrorStyle = strlen(trim($exHtmlResultError))>0 ? 'orangeMsg' : 'greenMsg';
+$contentError = '<p class="'.$isErrorStyle.'">Process terminated '.$isError.'</p>';
+$contentError .= ($docAlertOnlyError == 1) ? $exHtmlResultError : $exHtmlResult.$exHtmlResultError;
+/**
+ * Print import log
+ */
+echo $contentError;
+
 /**
  * Send email with import log to email contact
  */
-$contentError = ($docAlertOnlyError == 1) ? $exHtmlResultError : $exHtmlResult.$exHtmlResultError;
 if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
     $siteFromName = get_bloginfo( 'name' );
     $siteFromEmail = get_bloginfo( 'admin_email' );
@@ -183,7 +191,3 @@ if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
         $log->debug_wpmail($sent_message, true);
     }
 }
-/**
- * Print import log
- */
-echo $contentError;
