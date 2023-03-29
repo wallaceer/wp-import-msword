@@ -16,6 +16,7 @@ $document = new ws_document();
 
 $exHtmlResult = '';
 $exHtmlResultError = '';
+$contentError = '';
 /**
  * Load file collection from working directory
  */
@@ -49,7 +50,7 @@ foreach($files_collection as $file){
              */
             $file_c->ws_parse_file_content($content, $docSeparator, $docStructure);
             if (count($file_c->docContent) === 0) {
-                $exHtmlResultError .= '<p>ERROR: ' . $file['name'] . ' :: ' . $file_c->errorFile . '</p>';
+                $exHtmlResultError .= '<p><span class="orangeMsg">ERROR</span>: <b>' . $file['name'] . '</b> :: ' . $file_c->errorFile . '</p>';
                 $log->logWrite("ERROR", array('file' => $file['name'], 'error' => $file_c->errorFile));
             } else {
 
@@ -140,28 +141,28 @@ foreach($files_collection as $file){
                 $log->logWrite("INFO", array('post_id'=>$read->post_id, 'meta'=>$meta));
                 $exHtmlResult .= '<p>SUCCESS: '.$file['name'].' :: '.__('Created meta tags for post ').$read->post_id.'</p>';
 
-                /**
-                 * Delete file
-                 */
-                $file_c->ws_delete_file($dir . $file['name']);
-                /**
-                 * Log
-                 */
-                $log->logWrite("INFO", "Deleted file ".$dir . $file['name']);
-                $exHtmlResult .= '<p>INFO: '.__('Deleted file ').$dir.$file['name'].'</p>';
-
             } else {
                 $log->logWrite("ERROR", 'Create Post ERROR'.$read->error);
-                $exHtmlResultError .= '<p>ERROR: '.__('Create post failed with error ').' :: '.$read->error.'</p>';
+                $exHtmlResultError .= '<p><span class="orangeMsg">ERROR</span>: '.__('Create post failed with error ').' :: '.$read->error.'</p>';
             }
         }
 
 
     }
 
+    /**
+     * Delete file
+     */
+    $file_c->ws_delete_file($dir . $file['name']);
+    /**
+     * Log
+     */
+    $log->logWrite("INFO", "Deleted file ".$dir . $file['name']);
+    $exHtmlResult .= '<p>INFO: '.__('Deleted file ').$dir.$file['name'].'</p>';
+
 }
 
-$isError = strlen(trim($exHtmlResultError))>0 ? ' with error. See below please.' : ' without error.';
+$isError = strlen(trim($exHtmlResultError))>0 ? ' with error reported below.' : ' without error.';
 $isErrorStyle = strlen(trim($exHtmlResultError))>0 ? 'orangeMsg' : 'greenMsg';
 $contentError = '<p class="'.$isErrorStyle.'">Process terminated '.$isError.'</p>';
 $contentError .= ($docAlertOnlyError == 1) ? $exHtmlResultError : $exHtmlResult.$exHtmlResultError;
