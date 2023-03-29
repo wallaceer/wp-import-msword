@@ -21,3 +21,18 @@ jQuery(document).ready(function($) {
     });
 
 });
+
+/**
+ * Show/Hide section relative to parse document configurations
+ */
+function parse_document_config() {
+    var $ = jQuery.noConflict();
+    var checkbox = $('[name="wp_import_word_document_parsing"]');
+
+        if (checkbox.is(':checked')){
+            document.getElementById('parse_document_config').style.display = 'inline';
+        } else {
+            document.getElementById('parse_document_config').style.display = 'none';
+        }
+
+}

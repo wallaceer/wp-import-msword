@@ -67,7 +67,7 @@ function wp_import_word() {
     </script>
     <div class="action_create_posts">
             <div id="button_create_posts">
-                <button id="button_create" value="btn_create" name="button_create" class="button"><?php echo __('Create Posts')?></button>
+                <button id="button_create" value="btn_create" name="button_create" class="button"><?php echo __('Create Post')?></button>
                 <input id="access_token" type="hidden" name="access_token" value="<?php echo wp_get_session_token(); ?>" />
             </div>
             <div id="result_create_posts" class="result_create_posts"></div>
@@ -135,36 +135,46 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Post parent mapping')?></th>
-                    <td>
-                        <textarea name="wp_import_word_post_parent"><?php echo get_option( 'wp_import_word_post_parent' ); ?></textarea>
-                    </td>
-                </tr>
-                <tr>
                     <th scope="row" class="row"><?php echo __('Enable document parsing')?></th>
                     <td>
                         <label class="switch">
-                            <input type="checkbox" name="wp_import_word_document_parsing" value="1" <?php if(get_option( 'wp_import_word_document_parsing' ) == 1){?> checked="checked" <?php }?> />
+                            <input type="checkbox" name="wp_import_word_document_parsing" value="1" <?php if(get_option( 'wp_import_word_document_parsing' ) == 1){?> checked="checked" <?php }?> onclick="parse_document_config()" />
                             <span class="slider round"></span>
                         </label>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Character separator for document parsing')?></th>
-                    <td>
-                        <input type="text" name="wp_import_word_separator" value="<?php echo get_option( 'wp_import_word_separator' ); ?>" />
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row" class="row"><?php echo __('String structure. The position of field in the structure define the position in the document. If empty this configuration will not evaluate.')?></th>
-                    <td>
-                        <input type="text" name="wp_import_word_structure" value="<?php echo get_option( 'wp_import_word_structure' ); ?>" />
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row" class="row"><?php echo __('String structure for ACF fields: map id acf field with acf name writed in String Structure. If empty this configuration will not evaluate.')?></th>
-                    <td>
-                        <textarea name="wp_import_word_acf_mapping"><?php echo get_option( 'wp_import_word_acf_mapping' ); ?></textarea>
+                    <td colspan="2">
+                        <table id="parse_document_config" style="display:inline;">
+                            <tr>
+                                <th scope="row" class="row"><?php echo __('Post parent mapping')?></th>
+                                <td>
+                                    <textarea name="wp_import_word_post_parent"><?php echo get_option( 'wp_import_word_post_parent' ); ?></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="row"><?php echo __('Character separator for document parsing')?></th>
+                                <td>
+                                    <input type="text" name="wp_import_word_separator" value="<?php echo get_option( 'wp_import_word_separator' ); ?>" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="row">
+                                    <?php echo __('String structure')?><br />
+                                    </th>
+                                <td>
+                                    <input type="text" name="wp_import_word_structure" value="<?php echo get_option( 'wp_import_word_structure' ); ?>" />
+                                    <em><?php echo __('The field\'s position in the string structure define the field\'s position in the Word document. If is empty this configuration will not evaluate.')?></em>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="row"><?php echo __('String structure for ACF fields')?></th>
+                                <td>
+                                    <textarea name="wp_import_word_acf_mapping"><?php echo get_option( 'wp_import_word_acf_mapping' ); ?></textarea>
+                                    <em><?php echo __('This json map the id of acf field with his relative acf name writed in String Structure. If is empty this configuration will not evaluate.')?></em>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
                 <tr>

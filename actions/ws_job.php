@@ -162,7 +162,7 @@ foreach($files_collection as $file){
 
 }
 
-$isError = strlen(trim($exHtmlResultError))>0 ? ' with error reported below.' : ' without error.';
+$isError = strlen(trim($exHtmlResultError))>0 ? ' with error reported below. <a href="/wp-admin/admin.php?page=wp-import-word-log">Click here for reading the full log.</a>' : ' without error.';
 $isErrorStyle = strlen(trim($exHtmlResultError))>0 ? 'orangeMsg' : 'greenMsg';
 $contentError = '<p class="'.$isErrorStyle.'">Process terminated '.$isError.'</p>';
 $contentError .= ($docAlertOnlyError == 1) ? $exHtmlResultError : $exHtmlResult.$exHtmlResultError;
