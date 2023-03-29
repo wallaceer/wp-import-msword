@@ -1,4 +1,6 @@
-This plugin import content from a Word document and create a Page or a Post in your Wordpress site.
+This plugin create a Page or a Post in your Wordpress site by reading content from a word document.
+
+Tested up to WP 6.1.1
 
 **Requirements**
 - PHP zip extension
@@ -24,11 +26,11 @@ You can configure the plugin with this informations:
 
 8. String structure for ACF fields: map id acf field with acf name writed in String Structure. If empty this configuration will not evaluate.
    You can configure the plugin in order that it manages the content in two different way
-- 1. all content is inserted in the post content
-- 2. the content is splitted in two subcontent inserted in nuto_parte_1 and nuto_parte_2 if theyr exists and are mapped into the json writed in ACF fields configuration section
+   1. all content is inserted in the post content
+   2. the content is splitted in two subcontent inserted in nuto_parte_1 and nuto_parte_2 if theyr exists and are mapped into the json writed in ACF fields configuration section
 
-9. Show Info/Error
+9. Show only errors
 
-10. Show only errors
+10. Send report Email
 
-11. Email to send import log
+11. Email address for report

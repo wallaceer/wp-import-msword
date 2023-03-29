@@ -178,15 +178,6 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Show Info/Error')?></th>
-                    <td>
-                        <label class="switch">
-                            <input type="checkbox" name="wp_import_word_alert" value="1" <?php if(get_option( 'wp_import_word_alert' ) == 1){?> checked="checked" <?php }?> />
-                            <span class="slider round"></span>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
                     <th scope="row" class="row"><?php echo __('Show only errors')?></th>
                     <td>
                         <label class="switch">
@@ -196,7 +187,16 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Email to send import log')?></th>
+                    <th scope="row" class="row"><?php echo __('Send report Email')?></th>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" name="wp_import_word_alert" value="1" <?php if(get_option( 'wp_import_word_alert' ) == 1){?> checked="checked" <?php }?> />
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row"><?php echo __('Email address for report')?></th>
                     <td>
                         <input type="email" name="wp_import_word_email" value="<?php echo get_option( 'wp_import_word_email' ); ?>" />
                     </td>

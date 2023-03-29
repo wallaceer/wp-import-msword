@@ -31,9 +31,9 @@ You can configure the plugin in order that it manages the content in two differe
 - 1. all content is inserted in the post content
 - 2. the content is splitted in two subcontent inserted in nuto_parte_1 and nuto_parte_2 if theyr exists and are mapped into the json writed in ACF fields configuration section
 
-9. Show Info/Error
+9. Show only errors
 
-10. Show only errors
+10. Send report Email
 
-11. Email to send import log
+11. Email address for report
 
