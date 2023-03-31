@@ -1,6 +1,6 @@
 This plugin create a Page or a Post in your Wordpress site by reading content from a word document.
 
-Tested up to WP 6.1.1
+Tested up to WP 6.2
 
 **Requirements**
 - PHP zip extension

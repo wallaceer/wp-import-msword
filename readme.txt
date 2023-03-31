@@ -2,7 +2,7 @@
 Contributors: Walter Santi
 Tags: word, import, content, post, page
 Requires at least:
-Tested up to: 6.1.1
+Tested up to: 6.2
 Stable tag: 1.1
 License:
 License URI:
