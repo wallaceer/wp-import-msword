@@ -261,7 +261,7 @@ function wp_import_word_doc(){
         <?php esc_html_e( 'Word Import Documentation', 'wp-import-word-doc' ); ?>
     </h1>
     <div class="doc">
-        <div class="scrollable-content">
+        <div class="">
             <?php
             $documentFile = plugin_dir_path( __FILE__ ) . '/../README.md' ;
             $fileDoc = fopen($documentFile ,"r");
