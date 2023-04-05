@@ -77,9 +77,9 @@ foreach($files_collection as $file){
                  * Meta tags data
                  */
                 $meta = array(
-                    'meta_title' => isset($file_c->docContent['meta_title']) ?? '',
-                    'meta_description' => isset($file_c->docContent['meta_description']) ?? '',
-                    'focus_keyword' => isset($file_c->docContent['focus_keyword']) ?? ''
+                    'meta_title' => $file_c->docContent['meta_title'],
+                    'meta_description' => $file_c->docContent['meta_description'],
+                    'focus_keyword' => $file_c->docContent['focus_keyword']
                 );
 
                 /**
@@ -88,6 +88,7 @@ foreach($files_collection as $file){
                 $acfFields = ws_get_acf_from_config($acfMapping);
             }
         }
+
 
         /**
          * Check data and Create post
@@ -128,8 +129,8 @@ foreach($files_collection as $file){
                     if($acfFields['contenuto_parte_1'] && $acfFields['contenuto_parte_2']){
                         $acfFieldsContent = [$acfFields['contenuto_parte_1'],$acfFields['contenuto_parte_2']];
                         $splittedContent = $read->split_content($acfFields, $data['post_content'], '<h2>', 2);
-                        $data['contenuto_parte_1'] = $splittedContent['contenuto_parte_1'];
-                        $data['contenuto_parte_2'] = $splittedContent['contenuto_parte_2'];
+                        $data['contenuto_parte_1'] = str_replace("</p>>", "", preg_replace("/<\/p/", "</p>", $splittedContent['contenuto_parte_1']));
+                        $data['contenuto_parte_2'] = str_replace("</p>>", "", preg_replace("/<\/p/", "</p>", $splittedContent['contenuto_parte_2']));
                     }
 
                     $read->ws_update_acf($read->post_id, $acfFields, $data);
