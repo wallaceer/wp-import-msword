@@ -79,16 +79,25 @@ foreach($files_collection as $file){
                 $meta = array(
                     'meta_title' => $file_c->docContent['meta_title'],
                     'meta_description' => $file_c->docContent['meta_description'],
-                    'focus_keyword' => $file_c->docContent['focus_keyword']
+                    'focus_keyword' => isset($file_c->docContent['focus_keyword']) ? $file_c->docContent['focus_keyword'] : ''
                 );
 
                 /**
                  * ACF data
                  */
                 $acfFields = ws_get_acf_from_config($acfMapping);
+
+                /**
+                 * Get Macoarea name if macroarea code exist
+                 */
+                $macroarea_code = $file_c->docContent['acf_macroarea'];
+                if(preg_match("/([A-Z]+){1,4}/", $macroarea_code)){
+                    $data['macroarea_name'] = wp_get_data_macroarea($macroarea_code)[0]->macroarea;
+                    $data['acf_immagine'] = str_replace(".webp", '-'.strtolower($data['macroarea_name']).'.webp', $data['acf_immagine']);
+                }
+
             }
         }
-
 
         /**
          * Check data and Create post

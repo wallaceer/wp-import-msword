@@ -274,3 +274,21 @@ function wp_import_word_doc(){
     </div>
     <?php
 }
+
+
+/**
+ * Load macroarea details
+ * @return array(object(codice, macroarea))
+ */
+function wp_get_data_macroarea($code=NULL) {
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . "macroarea";
+    $query = "SELECT * FROM $table_name where 1";
+    $query .= $code !== NULL ? " and codice = '".$code."'" : '';
+    $query .= ';';
+
+    $macroareaData = $wpdb->get_results( "$query" );
+
+    return $macroareaData;
+}
