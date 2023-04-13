@@ -67,7 +67,7 @@ function wp_import_word() {
     </script>
     <div class="action_create_posts">
             <div id="button_create_posts">
-                <button id="button_create" value="btn_create" name="button_create" class="button"><?php echo __('Create Post')?></button>
+                <button id="button_create" value="btn_create" name="button_create" class="button"><?php echo _e('Create Post')?></button>
                 <input id="access_token" type="hidden" name="access_token" value="<?php echo wp_get_session_token(); ?>" />
             </div>
             <div id="result_create_posts" class="result_create_posts"></div>
@@ -94,13 +94,24 @@ function register_wp_import_word_settings(){
 add_action('admin_init', 'register_wp_import_word_settings');
 
 /**
+ * Load the plugin textdomain for localisation
+ * @since 2.0.0
+ */
+
+function wp_import_word_load_textdomain() {
+    load_plugin_textdomain( 'wp-import-word', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'init', 'wp_import_word_load_textdomain');
+
+
+/**
  * Plugin configuration form
  * @return void
  */
 function wp_import_word_config(){
     ?>
     <h1>
-        <?php esc_html_e( 'Word Import Configuration', 'wp-import-word-config' ); ?>
+        <?php _e( 'Word Import Configuration', 'wp-import-word' ); ?>
     </h1>
     <form method="post" action="options.php">
         <?php
@@ -110,32 +121,32 @@ function wp_import_word_config(){
         <fieldset>
             <table class="table">
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Directory to save documents (only directory name)')?></th>
+                    <th scope="row" class="row"><?php _e('Directory to save documents (only directory name)', 'wp-import-word')?></th>
                     <td class="td">
                         <input type="text" name="wp_import_word_dir" value="<?php echo get_option( 'wp_import_word_dir' ); ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Post type (Page/Post)') ?></th>
+                    <th scope="row" class="row"><?php _e('Post type (Page/Post)', 'wp-import-word') ?></th>
                     <td>
                         <select name="wp_import_word_post_type">
-                            <option value="page" <?php if(get_option( 'wp_import_word_post_type' ) === 'page') echo 'selected="selected"'?>>Page</option>
-                            <option value="post" <?php if(get_option( 'wp_import_word_post_type' ) === 'post') echo 'selected="selected"'?>>Post</option>
+                            <option value="page" <?php if(get_option( 'wp_import_word_post_type' ) === 'page') echo 'selected="selected"'?>><?php _e('Page', 'wp-import-word')?></option>
+                            <option value="post" <?php if(get_option( 'wp_import_word_post_type' ) === 'post') echo 'selected="selected"'?>><?php _e('Post', 'wp-import-word')?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Post status after creation') ?></th>
+                    <th scope="row" class="row"><?php _e('Post status after creation', 'wp-import-word') ?></th>
                     <td>
                         <select name="wp_import_word_post_status">
-                            <option value="Publish" <?php if(get_option( 'wp_import_word_post_status' ) === 'Publish') echo 'selected="selected"'?>>Publish</option>
-                            <option value="Draft" <?php if(get_option( 'wp_import_word_post_status' ) === 'Draft') echo 'selected="selected"'?>>Draft</option>
-                            <option value="Pending" <?php if(get_option( 'wp_import_word_post_status' ) === 'Pending') echo 'selected="selected"'?>>Pending</option>
+                            <option value="Publish" <?php if(get_option( 'wp_import_word_post_status' ) === 'Publish') echo 'selected="selected"'?>><?php _e('Publish', 'wp-import-word' )?></option>
+                            <option value="Draft" <?php if(get_option( 'wp_import_word_post_status' ) === 'Draft') echo 'selected="selected"'?>><?php _e('Draft', 'wp-import-word')?></option>
+                            <option value="Pending" <?php if(get_option( 'wp_import_word_post_status' ) === 'Pending') echo 'selected="selected"'?>><?php _e('Pending', 'wp-import-word')?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Enable document parsing')?></th>
+                    <th scope="row" class="row"><?php _e('Enable document parsing', 'wp-import-word')?></th>
                     <td>
                         <label class="switch">
                             <input type="checkbox" name="wp_import_word_document_parsing" value="1" <?php if(get_option( 'wp_import_word_document_parsing' ) == 1){?> checked="checked" <?php }?> onclick="parse_document_config()" />
@@ -147,38 +158,38 @@ function wp_import_word_config(){
                     <td colspan="2">
                         <table id="parse_document_config" style="display:inline;">
                             <tr>
-                                <th scope="row" class="row"><?php echo __('Post parent mapping')?></th>
+                                <th scope="row" class="row"><?php _e('Post parent mapping', 'wp-import-word')?></th>
                                 <td>
                                     <textarea name="wp_import_word_post_parent"><?php echo get_option( 'wp_import_word_post_parent' ); ?></textarea>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="row"><?php echo __('Character separator for document parsing')?></th>
+                                <th scope="row" class="row"><?php _e('Character separator for document parsing', 'wp-import-word')?></th>
                                 <td>
                                     <input type="text" name="wp_import_word_separator" value="<?php echo get_option( 'wp_import_word_separator' ); ?>" />
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row" class="row">
-                                    <?php echo __('String structure')?><br />
+                                    <?php _e('String structure', 'wp-import-word')?><br />
                                     </th>
                                 <td>
                                     <input type="text" name="wp_import_word_structure" value="<?php echo get_option( 'wp_import_word_structure' ); ?>" />
-                                    <em><?php echo __('The field\'s position in the string structure define the field\'s position in the Word document. If is empty this configuration will not evaluate.')?></em>
+                                    <em><?php _e('The position of field in the string structure define the field\'s position in the Word document. If is empty this configuration will not evaluate.')?></em>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="row"><?php echo __('String structure for ACF fields')?></th>
+                                <th scope="row" class="row"><?php _e('String structure for ACF fields', 'wp-import-word')?></th>
                                 <td>
                                     <textarea name="wp_import_word_acf_mapping"><?php echo get_option( 'wp_import_word_acf_mapping' ); ?></textarea>
-                                    <em><?php echo __('This json map the id of acf field with his relative acf name writed in String Structure. If is empty this configuration will not evaluate.')?></em>
+                                    <em><?php _e('This json map the id of acf field with his relative acf name writed in String Structure. If is empty this configuration will not evaluate.')?></em>
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Show only errors')?></th>
+                    <th scope="row" class="row"><?php _e('Show only errors', 'wp-import-word')?></th>
                     <td>
                         <label class="switch">
                             <input type="checkbox" name="wp_import_word_alert_only_error" value="1" <?php if(get_option( 'wp_import_word_alert_only_error' ) == 1){?> checked="checked" <?php }?> />
@@ -187,7 +198,7 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Send report Email')?></th>
+                    <th scope="row" class="row"><?php _e('Send report Email', 'wp-import-word')?></th>
                     <td>
                         <label class="switch">
                             <input type="checkbox" name="wp_import_word_alert" value="1" <?php if(get_option( 'wp_import_word_alert' ) == 1){?> checked="checked" <?php }?> />
@@ -196,7 +207,7 @@ function wp_import_word_config(){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row" class="row"><?php echo __('Email address for report')?></th>
+                    <th scope="row" class="row"><?php _e('Email address for report', 'wp-import-word')?></th>
                     <td>
                         <input type="email" name="wp_import_word_email" value="<?php echo get_option( 'wp_import_word_email' ); ?>" />
                     </td>

@@ -1,0 +1,128 @@
+# Copyright (C) 2023 WiTech
+# This file is distributed under the same license as the Wordpress Import content from Word document plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Wordpress Import content from Word document 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-import-word\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-04-13T09:30:45+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: wp-import-word\n"
+"Language: en\n"
+
+#. Plugin Name of the plugin
+msgid "Wordpress Import content from Word document"
+msgstr "Importazione di contenuti da file Word"
+
+#. Plugin URI of the plugin
+msgid "https://blog.waltersanti.info"
+msgstr ""
+
+#. Description of the plugin
+msgid "Import content from Word document"
+msgstr "Importazione di contenuti da file Word"
+
+#. Author of the plugin
+msgid "WiTech"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://waltersanti.info"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Word Import"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Create Post"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Configuration"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Directory to save documents (only directory name)"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Post type (Page/Post)"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Page"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Post"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Publish"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Draft"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Enable document parsing"
+msgstr "A"
+
+#: includes/ws_functions.php
+msgid "Character separator for document parsing"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "String structure"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid ""
+"The position of field in the string structure define the field's position in "
+"the Word document. If is empty this configuration will not evaluate."
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "String structure for ACF fields"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid ""
+"This json map the id of acf field with his relative acf name writed in "
+"String Structure. If is empty this configuration will not evaluate."
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Show only errors"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Send report Email"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Email address for report"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Word Import Logs"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Word Import Documentation"
+msgstr ""
+
+#: includes/ws_functions.php
+msgid "Word Import Configuration"
+msgstr ""

@@ -93,7 +93,11 @@ foreach($files_collection as $file){
                 $macroarea_code = $file_c->docContent['acf_macroarea'];
                 if(preg_match("/([A-Z]+){1,4}/", $macroarea_code)){
                     $data['macroarea_name'] = wp_get_data_macroarea($macroarea_code)[0]->macroarea;
-                    $data['acf_immagine'] = str_replace(".webp", '-'.strtolower($data['macroarea_name']).'.webp', $data['acf_immagine']);
+                    //Change name only if page is porto
+                    if($data['acf_tipologia_pagina'] == 'porto'){
+                        $data['acf_immagine'] = str_replace(".webp", '-'.strtolower($data['macroarea_name']).'.webp', $data['acf_immagine']);
+                    }
+
                 }
 
             }
