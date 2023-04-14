@@ -1,4 +1,12 @@
 <?php
+/**
+ * Load the plugin textdomain for localisation
+ * @since 2.0.0
+ */
+function wp_import_load_plugin_textdomain() {
+    load_plugin_textdomain( 'wp-import-word', FALSE, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'wp_import_load_plugin_textdomain' );
 
 function ws_word_import() {
     add_menu_page(
@@ -67,7 +75,7 @@ function wp_import_word() {
     </script>
     <div class="action_create_posts">
             <div id="button_create_posts">
-                <button id="button_create" value="btn_create" name="button_create" class="button"><?php echo _e('Create Post')?></button>
+                <button id="button_create" value="btn_create" name="button_create" class="button"><?php _e('Create Post')?></button>
                 <input id="access_token" type="hidden" name="access_token" value="<?php echo wp_get_session_token(); ?>" />
             </div>
             <div id="result_create_posts" class="result_create_posts"></div>
@@ -92,16 +100,6 @@ function register_wp_import_word_settings(){
     register_setting('wp-import-word-settings', 'wp_import_word_acf_mapping');
 }
 add_action('admin_init', 'register_wp_import_word_settings');
-
-/**
- * Load the plugin textdomain for localisation
- * @since 2.0.0
- */
-
-function wp_import_word_load_textdomain() {
-    load_plugin_textdomain( 'wp-import-word', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'init', 'wp_import_word_load_textdomain');
 
 
 /**

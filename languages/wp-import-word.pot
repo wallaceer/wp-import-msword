@@ -35,94 +35,94 @@ msgstr ""
 msgid "https://waltersanti.info"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:55
 msgid "Word Import"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:70
 msgid "Create Post"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:114
 msgid "Configuration"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:124
 msgid "Directory to save documents (only directory name)"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:130
 msgid "Post type (Page/Post)"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:133
 msgid "Page"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:134
 msgid "Post"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:142
 msgid "Publish"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:143
 msgid "Draft"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:144
 msgid "Pending"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:149
 msgid "Enable document parsing"
-msgstr "A"
+msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:167
 msgid "Character separator for document parsing"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:174
 msgid "String structure"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:178
 msgid ""
 "The position of field in the string structure define the field's position in "
 "the Word document. If is empty this configuration will not evaluate."
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:182
 msgid "String structure for ACF fields"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:185
 msgid ""
 "This json map the id of acf field with his relative acf name writed in "
 "String Structure. If is empty this configuration will not evaluate."
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:192
 msgid "Show only errors"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:201
 msgid "Send report Email"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:210
 msgid "Email address for report"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:250
 msgid "Word Import Logs"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:272
 msgid "Word Import Documentation"
 msgstr ""
 
-#: includes/ws_functions.php
+#: includes/ws_functions.php:114
 msgid "Word Import Configuration"
 msgstr ""
