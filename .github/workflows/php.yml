@@ -6,11 +6,14 @@ on:
       - main
       
 jobs:
-  deployment:
+  web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     environment: staging
     steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+      
     - name: 📂 Sync files
       uses: wallaceer/wp-import-word@v1.1
       with:
