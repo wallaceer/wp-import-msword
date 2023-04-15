@@ -5,7 +5,7 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: 📂 Sync files
       uses: wallaceer/wp-import-word@v1.1
       with:
