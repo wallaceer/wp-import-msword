@@ -14,7 +14,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.5.2
       
-      
     - name: 📂 Sync files
       uses: wallaceer/wp-import-word@v1.2
       with:
