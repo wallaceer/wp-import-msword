@@ -5,8 +5,6 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-    
     - name: 📂 Sync files
       uses: wallaceer/wp-import-word@v1.1
       with:
