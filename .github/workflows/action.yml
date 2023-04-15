@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v3.5.2
       
     - name: 📂 Sync files
-      uses: wallaceer/wp-import-word@v1.2
+      uses: wallaceer/wp-import-word@v1.3
       with:
         server: 77.83.64.38
         username: fb24.com_jice99s6cve
