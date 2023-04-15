@@ -11,7 +11,7 @@ jobs:
     - name: 📂 Sync files
       uses: wallaceer/wp-import-word@v1.1
       with:
-        server: ${{ ftp_server }}
+        server: ${{ variables.ftp_server }}
         username: fb24.com_jice99s6cve
         password: ${{ secrets.ftp_password }}
         server-dir: /httpdocs/wp-content/uploads/
