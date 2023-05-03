@@ -44,10 +44,10 @@ You can configure the plugin in order that it manages the content in two differe
 
 == Screenshots ==
 
-1. screen.png
-2. config.png
-3. logs.png
-4. doc.png
+1. Upload files and generate content
+2. Configuration
+3. Logs
+4. Documentation
 
 
 == Changelog ==
