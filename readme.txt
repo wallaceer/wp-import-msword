@@ -6,7 +6,7 @@ Tested up to: 6.2
 Stable tag: 1.1
 License:
 License URI:
-Text Domain: wp-import-word
+Text Domain: wpimportword
 
 == Description ==
 This plugin you permit tu generate post or page in WP directly importing content from Word document.

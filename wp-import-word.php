@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Wordpress Import content from Word document
+ * Plugin Name: Wordpress Import Word
  * Plugin URI: https://blog.waltersanti.info
  * Description: Import content from Word document
  * Author: WiTech
@@ -8,12 +8,11 @@
  * Version: 1.1
  * Requires at least: 5.2
  * Requires PHP: 7.2
- * Text Domain: wp-import-word
+ * Text Domain: wpimportword
  * Domain Path: /languages
  * License: GPL v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
-
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
