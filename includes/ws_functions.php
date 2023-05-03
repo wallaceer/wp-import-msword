@@ -302,20 +302,3 @@ function wp_get_data_macroarea($code=NULL) {
     return $macroareaData;
 }
 
-/**
- * Plugin update checker
- */
-require dirname(__FILE__) . '/../plugin-update-checker/plugin-update-checker.php';
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
-$myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/wallaceer/wp-import-word',
-	__FILE__,
-	'wp-import-word'
-);
-
-//Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('production');
-
-//Optional: If you're using a private repository, specify the access token like this:
-$myUpdateChecker->setAuthentication('your-token-here');
