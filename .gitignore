@@ -1,6 +1,5 @@
 
 .idea/
-
 .DS_Store
-var/log/wp_import_word.log
-Dev/wp.docker-widgets.wie
+var/*
+Dev/*
