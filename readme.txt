@@ -48,3 +48,9 @@ You can configure the plugin in order that it manages the content in two differe
 
 = 1.2 =
 * Added update manager
+
+
+== Upgrade Notice ==
+
+= 1.2 =
+Ugrade system
