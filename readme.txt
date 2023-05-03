@@ -1,16 +1,20 @@
 === Wordpress Import content from Word document ===
-Contributors: Walter Santi
+Contributors: WiTech
+Donate link: 
 Tags: word, import, content, post, page
-Requires at least:
+Requires at least: 6.0
 Tested up to: 6.2
 Stable tag: 1.2
-License:
-License URI:
+Requires PHP: 7.2
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: wpimportword
 
+This plugin allow to generate WP post or page importing Word document.
+
 == Description ==
-This plugin you permit tu generate post or page in WP directly importing content from Word document.
-You can use .docx or .doc extension, but the preferred format is DOCX; docx is the more tested format.
+This plugin allow to generate WP post or page importing Word document.
+You can use .docx or .doc extension, but docx is preferred.
 You can configure the plugin with this informations:
 1. Directory to save documents (only directory name)
 
@@ -37,6 +41,11 @@ You can configure the plugin in order that it manages the content in two differe
 10. Send report Email
 
 11. Email address for report
+
+== Screenshots ==
+
+1. This screen shot description corresponds to screen-1.png. Screenshots are stored in the /assets directory.
+
 
 == Changelog ==
 
