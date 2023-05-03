@@ -44,13 +44,16 @@ You can configure the plugin in order that it manages the content in two differe
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screen-1.png. Screenshots are stored in the /assets directory.
+1. screen.png
+2. config.png
+3. logs.png
+4. doc.png
 
 
 == Changelog ==
 
 = 1.0 =
-* First full version 
+* First full version with all functionalities
 
 = 1.1 =
 * Added some fix
@@ -62,4 +65,4 @@ You can configure the plugin in order that it manages the content in two differe
 == Upgrade Notice ==
 
 = 1.2 =
-Ugrade system
+Inserted the plugin update checker

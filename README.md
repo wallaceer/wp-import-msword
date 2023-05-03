@@ -1,4 +1,4 @@
-This plugin create a Page or a Post in your Wordpress site by reading content from a word document.
+This plugin create a Page or Post in your Wordpress site by reading content from a word document.
 
 Tested up to WP 6.2
 
