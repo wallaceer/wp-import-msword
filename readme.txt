@@ -3,7 +3,7 @@ Contributors: Walter Santi
 Tags: word, import, content, post, page
 Requires at least:
 Tested up to: 6.2
-Stable tag: 1.1
+Stable tag: 1.2
 License:
 License URI:
 Text Domain: wpimportword
@@ -38,3 +38,13 @@ You can configure the plugin in order that it manages the content in two differe
 
 11. Email address for report
 
+== Changelog ==
+
+= 1.0 =
+* First full version 
+
+= 1.1 =
+* Added some fix
+
+= 1.2 =
+* Added update manager
