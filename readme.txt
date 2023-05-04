@@ -62,8 +62,14 @@ ex. {"acf_tipologia_pagina":"field_636e53251c164","acf_immagine":"field_636e54df
 = 1.2 =
 * Added update manager
 
+= 1.3 =
+* Added IT translations
+
 
 == Upgrade Notice ==
 
 = 1.2 =
-Inserted the plugin update checker
+Added the plugin update checker
+
+= 1.3 =
+Added IT translations

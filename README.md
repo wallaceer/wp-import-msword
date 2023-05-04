@@ -40,3 +40,17 @@ ex. {"acf_tipologia_pagina":"field_636e53251c164","acf_immagine":"field_636e54df
 6. Send report Email
 
 7. Email address for report
+
+**Changelog**
+
+= 1.0 =
+* First full version with all functionalities
+
+= 1.1 =
+* Added some fix
+
+= 1.2 =
+* Added update manager
+
+= 1.3 =
+Added IT translations
