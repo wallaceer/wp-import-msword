@@ -5,7 +5,7 @@
  * Description: Import content from Word document
  * Author: WiTech
  * Author URI: https://waltersanti.info
- * Donate link: 
+ * Donate link: https://www.paypal.com/donate/?business=4UKWLJY2L4CN2&no_recurring=0&item_name=With+a+donation+you+can+support+the+GitHub+project+%22WP+import+Word%22&currency_code=EUR
  * Version: 1.2
  * Requires at least: 5.2
  * Requires PHP: 7.2
