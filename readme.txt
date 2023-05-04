@@ -45,10 +45,10 @@ ex. {"acf_tipologia_pagina":"field_636e53251c164","acf_immagine":"field_636e54df
 
 == Screenshots ==
 
-1. screen.png
-2. config.png
-3. logs.png
-4. doc.png
+1. Upload files and generate content
+2. Configuration
+3. Logs
+4. Documentation
 
 
 == Changelog ==
