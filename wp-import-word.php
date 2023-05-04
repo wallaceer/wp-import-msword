@@ -7,7 +7,7 @@
  * Author URI: https://waltersanti.info
  * Donate link: https://www.paypal.com/donate/?business=4UKWLJY2L4CN2&no_recurring=0&item_name=With+a+donation+you+can+support+the+GitHub+project+%22WP+import+Word%22&currency_code=EUR
  * Version: 1.2
- * Requires at least: 5.2
+ * Requires at least: 4.5
  * Requires PHP: 7.2
  * Text Domain: wpimportword
  * Domain Path: /languages
@@ -20,6 +20,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 include __DIR__ . "/includes/ws_load.php";
+
+/**
+ * Load the plugin textdomain for localisation
+ * @since 2.0.0
+ */
+add_action( 'init', 'wpimportword_load_textdomain' );
+function wpimportword_load_textdomain() {
+    load_plugin_textdomain( 'wpimportword', FALSE, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
+}
 
 /**
  * Plugin update checker

@@ -2,7 +2,7 @@
 Contributors: WiTech
 Donate link: https://www.paypal.com/donate/?business=4UKWLJY2L4CN2&no_recurring=0&item_name=With+a+donation+you+can+support+the+GitHub+project+%22WP+import+Word%22&currency_code=EUR
 Tags: word, import, content, post, page
-Requires at least: 6.0
+Requires at least: 4.5
 Tested up to: 6.2
 Stable tag: 1.2
 Requires PHP: 7.2

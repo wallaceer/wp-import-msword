@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Wordpress Import Word 1.1\n"
+"Project-Id-Version: Wordpress Import Word 1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-import-word\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-14T14:24:14+00:00\n"
+"POT-Creation-Date: 2023-05-04T16:58:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: wpimportword\n"
@@ -65,7 +65,7 @@ msgid "Help"
 msgstr ""
 
 #: includes/ws_functions.php:78
-msgid "Create Post"
+msgid "Create"
 msgstr ""
 
 #: includes/ws_functions.php:112
