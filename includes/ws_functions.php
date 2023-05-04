@@ -1,16 +1,8 @@
 <?php
-/**
- * Load the plugin textdomain for localisation
- * @since 2.0.0
- */
-function wp_import_load_plugin_textdomain() {
-    load_plugin_textdomain( 'wpimportword', FALSE, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'plugins_loaded', 'wp_import_load_plugin_textdomain' );
 
 function ws_word_import() {
     add_menu_page(
-        __('Word Import', 'wpimportword'),
+        __('WP Word Import', 'wpimportword'),
         __('Word Import','wpimportword'),
         'read',
         'wp-import-word',
@@ -60,7 +52,7 @@ add_action( 'admin_enqueue_scripts', 'load_wpwordimport_plugin_scripts' );
 function wp_import_word() {
     ?>
     <h1>
-        <?php esc_html_e( 'Word Import', 'wpimportword' ); ?>
+        <?php esc_html_e( 'Word Import and create content', 'wpimportword' ); ?>
     </h1>
     <!-- (B) FILE DROP ZONE -->
     <div id="wp-import-word"></div>
@@ -75,7 +67,7 @@ function wp_import_word() {
     </script>
     <div class="action_create_posts">
             <div id="button_create_posts">
-                <button id="button_create" value="btn_create" name="button_create" class="button"><?php _e('Create Post', 'wpimportword')?></button>
+                <button id="button_create" value="btn_create" name="button_create" class="button"><?php _e('Create', 'wpimportword')?></button>
                 <input id="access_token" type="hidden" name="access_token" value="<?php echo wp_get_session_token(); ?>" />
             </div>
             <div id="result_create_posts" class="result_create_posts"></div>

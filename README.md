@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+This plugin creates a Page or Post in your Wordpress site by reading content from a word document.
+=======
 This plugin create a Page or   Post in your Wordpress site by reading content from a word document.
+>>>>>>> 58e96c0a0714681686d03ede9c7692c48b3b2cfb
 
 Tested up to WP 6.2
 
@@ -36,3 +40,17 @@ ex. {"acf_tipologia_pagina":"field_636e53251c164","acf_immagine":"field_636e54df
 6. Send report Email
 
 7. Email address for report
+
+**Changelog**
+
+= 1.0 =
+* First full version with all functionalities
+
+= 1.1 =
+* Added some fix
+
+= 1.2 =
+* Added update manager
+
+= 1.3 =
+Added IT translations

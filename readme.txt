@@ -2,9 +2,9 @@
 Contributors: WiTech
 Donate link: https://www.paypal.com/donate/?business=4UKWLJY2L4CN2&no_recurring=0&item_name=With+a+donation+you+can+support+the+GitHub+project+%22WP+import+Word%22&currency_code=EUR
 Tags: word, import, content, post, page
-Requires at least: 6.0
+Requires at least: 4.5
 Tested up to: 6.2
-Stable tag: 1.2
+Stable tag: 1.3
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -62,8 +62,14 @@ ex. {"acf_tipologia_pagina":"field_636e53251c164","acf_immagine":"field_636e54df
 = 1.2 =
 * Added update manager
 
+= 1.3 =
+* Added IT translations
+
 
 == Upgrade Notice ==
 
 = 1.2 =
-Inserted the plugin update checker
+Added the plugin update checker
+
+= 1.3 =
+Added IT translations

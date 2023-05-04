@@ -1,21 +1,18 @@
-# Copyright (C) 2023 WiTech
-# This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Wordpress Import Word 1.1\n"
+"Project-Id-Version: Wordpress Import Word 1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-import-word\n"
-"Last-Translator: admin\n"
-"Language-Team: Italiano\n"
+"POT-Creation-Date: 2023-05-04T16:58:04+00:00\n"
+"PO-Revision-Date: 2023-05-04 19:25+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-14T14:24:14+00:00\n"
-"PO-Revision-Date: 2023-04-14 14:26+0000\n"
-"X-Generator: Loco https://localise.biz/\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Domain: wpimportword\n"
-"Language: it_IT\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.6.4; wp-6.2"
 
 #. Plugin Name of the plugin
 msgid "Wordpress Import Word"
@@ -27,7 +24,7 @@ msgstr ""
 
 #. Description of the plugin
 msgid "Import content from Word document"
-msgstr "Crea contenuti in Wordpress importando file Word"
+msgstr "Crea post e pagine leggendo i contenuti dei file word"
 
 #. Author of the plugin
 msgid "WiTech"
@@ -37,9 +34,16 @@ msgstr ""
 msgid "https://waltersanti.info"
 msgstr ""
 
-#: includes/ws_functions.php:13 includes/ws_functions.php:14
-#: includes/ws_functions.php:63
+#: includes/ws_functions.php:5
 msgid "Word Import"
+msgstr ""
+
+#: includes/ws_functions.php:6
+msgid "WP Word Import"
+msgstr ""
+
+#: includes/ws_functions.php:55
+msgid "Word Import and create content"
 msgstr ""
 
 #: includes/ws_functions.php:22
@@ -48,55 +52,55 @@ msgstr ""
 
 #: includes/ws_functions.php:22
 msgid "Configuration"
-msgstr ""
+msgstr "Configurazione"
 
 #: includes/ws_functions.php:23
 msgid "Logs WP Import Word"
-msgstr ""
+msgstr "Registro eventi"
 
 #: includes/ws_functions.php:23
 msgid "Logs"
-msgstr ""
+msgstr "Registro"
 
 #: includes/ws_functions.php:24
 msgid "Doc WP Import Word"
-msgstr ""
+msgstr "Documentazione"
 
 #: includes/ws_functions.php:24
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #: includes/ws_functions.php:78
-msgid "Create Post"
+msgid "Create"
 msgstr "Crea"
 
 #: includes/ws_functions.php:112
 msgid "Word Import Configuration"
-msgstr ""
+msgstr "Configurazione"
 
 #: includes/ws_functions.php:122
 msgid "Directory to save documents (only directory name)"
-msgstr ""
+msgstr "Directory in cui salvare i documenti Words caricati (indicare soltanto il nome della directory)"
 
 #: includes/ws_functions.php:128
 msgid "Post type (Page/Post)"
-msgstr ""
+msgstr "Tipo di contenuto (Pagina/Articolo)"
 
 #: includes/ws_functions.php:131
 msgid "Page"
-msgstr ""
+msgstr "Pagina"
 
 #: includes/ws_functions.php:132
 msgid "Post"
-msgstr ""
+msgstr "Articolo"
 
 #: includes/ws_functions.php:137
 msgid "Post status after creation"
-msgstr ""
+msgstr "Stato contenuto dopo la creazione"
 
 #: includes/ws_functions.php:140
 msgid "Publish"
-msgstr ""
+msgstr "Pubblico"
 
 #: includes/ws_functions.php:141
 msgid "Draft"
@@ -104,46 +108,44 @@ msgstr "Bozza"
 
 #: includes/ws_functions.php:142
 msgid "Pending"
-msgstr ""
+msgstr "In attesa"
 
 #: includes/ws_functions.php:147
 msgid "Enable document parsing"
-msgstr ""
+msgstr "Abilita la mappatura dei dati nel documento"
 
 #: includes/ws_functions.php:159
 msgid "Post parent mapping"
-msgstr ""
+msgstr "Contenuto genitore"
 
 #: includes/ws_functions.php:165
 msgid "Character separator for document parsing"
-msgstr ""
+msgstr "Carattere di separazione per la mappatura del documento"
 
 #: includes/ws_functions.php:176
-msgid ""
-"The position of field in the string structure define the field's position in "
-"the Word document. If is empty this configuration will not evaluate."
-msgstr ""
+msgid "The position of field in the string structure define the field's position in the Word document. If is empty this configuration will not evaluate."
+msgstr "La posizione del campo nella stringa definisce la posizione del campo nel documento Word. Se questa stringa è vuota on viene consierata."
 
 #: includes/ws_functions.php:180
 msgid "String structure for ACF fields"
-msgstr ""
+msgstr "Struttura dei campi ACF"
 
 #: includes/ws_functions.php:190
 msgid "Show only errors"
-msgstr ""
+msgstr "Mostra soltanto gli errori"
 
 #: includes/ws_functions.php:199
 msgid "Send report Email"
-msgstr ""
+msgstr "Invia un report tramite email"
 
 #: includes/ws_functions.php:208
 msgid "Email address for report"
-msgstr ""
+msgstr "Indirizzo email per l’invio del report"
 
 #: includes/ws_functions.php:248
 msgid "Word Import Logs"
-msgstr ""
+msgstr "Registro eventi"
 
 #: includes/ws_functions.php:270
 msgid "Word Import Documentation"
-msgstr ""
+msgstr "Documentazione"
