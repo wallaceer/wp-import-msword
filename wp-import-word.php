@@ -6,7 +6,7 @@
  * Author: WiTech
  * Author URI: https://waltersanti.info
  * Donate link: https://www.paypal.com/donate/?business=4UKWLJY2L4CN2&no_recurring=0&item_name=With+a+donation+you+can+support+the+GitHub+project+%22WP+import+Word%22&currency_code=EUR
- * Version: 1.2
+ * Version: 1.3
  * Requires at least: 4.5
  * Requires PHP: 7.2
  * Text Domain: wpimportword
