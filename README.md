@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This plugin creates a Page or Post in your Wordpress site by reading content from a word document.
-=======
 This plugin create a Page or   Post in your Wordpress site by reading content from a word document.
->>>>>>> 58e96c0a0714681686d03ede9c7692c48b3b2cfb
 
 Tested up to WP 6.2
 
