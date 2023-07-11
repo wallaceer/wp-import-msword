@@ -100,19 +100,22 @@ class ws_files
 
         if(!is_array($strExplode)) return $this->errorFile = 'Invalid file structure, missing structure definition in plugin configuration.';
         if(!is_array($contentExplode)) return $this->errorFile = 'Invalid file structure, missing separator.';
-        if(is_array($contentExplode) && (count($contentExplode) <= 1 )) return $this->errorFile = 'Invalid file structure, incorrect number of fields '.count($contentExplode).' expected '.count($strExplode).'.';
+        if(is_array($contentExplode) && (count($contentExplode) <= 1 )) return $this->errorFile = 'Invalid file structure, incorrect number of fields, found '.count($contentExplode).' expected '.count($strExplode).'.';
         if(is_array($contentExplode) && count($contentExplode) !== count($strExplode)) return $this->errorFile = 'Invalid file structure, number of fields does not match with structure definition in plugin configuration, found '.count($contentExplode).' expected '.count($strExplode).'.';
 
         foreach ($contentExplode as $ri=>$re){
-            $this->docContent[$strExplode[$ri]] = trim($re);
+            $this->docContent[$strExplode[$ri]] = $this->fix_chars(trim($re));
         }
         return $this->docContent;
-
     }
 
     function ws_delete_file($filename){
         return unlink($filename);
     }
 
+
+    protected function fix_chars($var){
+        return preg_replace('/[\x00-\x1F\x7F-\xFF]/', '',$var);
+    }
 
 }

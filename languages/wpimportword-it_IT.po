@@ -3,16 +3,17 @@ msgstr ""
 "Project-Id-Version: Wordpress Import Word 1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-import-word\n"
 "POT-Creation-Date: 2023-05-04T16:58:04+00:00\n"
-"PO-Revision-Date: 2023-05-04 19:25+0200\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-05-05 08:29+0000\n"
+"Last-Translator: admin\n"
+"Language-Team: Italiano\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Domain: wpimportword\n"
+"X-Loco-Version: 2.6.4; wp-6.2"
 
 #. Plugin Name of the plugin
 msgid "Wordpress Import Word"
@@ -44,11 +45,11 @@ msgstr ""
 
 #: includes/ws_functions.php:55
 msgid "Word Import and create content"
-msgstr ""
+msgstr "Importa e crea contenuti"
 
 #: includes/ws_functions.php:22
 msgid "Config WP Import Word"
-msgstr ""
+msgstr "Configurazione"
 
 #: includes/ws_functions.php:22
 msgid "Configuration"
@@ -80,7 +81,9 @@ msgstr "Configurazione"
 
 #: includes/ws_functions.php:122
 msgid "Directory to save documents (only directory name)"
-msgstr "Directory in cui salvare i documenti Words caricati (indicare soltanto il nome della directory)"
+msgstr ""
+"Directory in cui salvare i documenti Words caricati (indicare soltanto il "
+"nome della directory)"
 
 #: includes/ws_functions.php:128
 msgid "Post type (Page/Post)"
@@ -123,8 +126,12 @@ msgid "Character separator for document parsing"
 msgstr "Carattere di separazione per la mappatura del documento"
 
 #: includes/ws_functions.php:176
-msgid "The position of field in the string structure define the field's position in the Word document. If is empty this configuration will not evaluate."
-msgstr "La posizione del campo nella stringa definisce la posizione del campo nel documento Word. Se questa stringa è vuota on viene consierata."
+msgid ""
+"The position of field in the string structure define the field's position in "
+"the Word document. If is empty this configuration will not evaluate."
+msgstr ""
+"La posizione del campo nella stringa definisce la posizione del campo nel "
+"documento Word. Se questa stringa è vuota on viene consierata."
 
 #: includes/ws_functions.php:180
 msgid "String structure for ACF fields"
@@ -149,3 +156,7 @@ msgstr "Registro eventi"
 #: includes/ws_functions.php:270
 msgid "Word Import Documentation"
 msgstr "Documentazione"
+
+#: includes/ws_functions.php:70
+msgid "Create Post"
+msgstr "Crea i contenuti"

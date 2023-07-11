@@ -6,7 +6,7 @@ class ws_import {
     public string $error;
 
     /**
-    * Read content from .docx Word document
+    * Read content from .docx & .doc Word document
     */
     public function read_docx($filename){
 
@@ -14,26 +14,21 @@ class ws_import {
       $content = '';
 
       if(!$filename || !file_exists($filename)) return false;
+      
+      $zip = new ZipArchive();
+      // Open the Microsoft Word .docx file as if it were a zip file... because it is.
+      if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) return false;
+      $zip->open($filename);
 
-      $zip = zip_open($filename);
-      if (!$zip || is_numeric($zip)) return false;
-
-      while ($zip_entry = zip_read($zip)) {
-
-          if (zip_entry_open($zip, $zip_entry) == FALSE) continue;
-
-          if (zip_entry_name($zip_entry) != "word/document.xml") continue;
-
-          $content .= zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
-
-          zip_entry_close($zip_entry);
-      }
-      zip_close($zip);
+      // Fetch the document.xml file from the word subdirectory in the archive.
+      $content = $zip->getFromName('word/document.xml');
+      $zip->close();
       $content = str_replace('</w:r></w:p></w:tc><w:tc>', "<br> ", $content);
       $content = str_replace('</w:r></w:p>', "\r\n", $content);
       $striped_content = strip_tags($content);
 
       return $striped_content;
+
     }
 
     /**
@@ -104,6 +99,7 @@ class ws_import {
      * Update ACF field for post specified by id
      * @param $postid
      * @param $acfFields
+     * @param $data
      * @return void
      */
     public function ws_update_acf($postid, $acfFields, $data){
