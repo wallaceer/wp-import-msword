@@ -110,19 +110,6 @@ class ws_import {
         }
     }
 
-
-    /**
-     * Empty the log file
-     */
-    public function emptyFileLog(){
-        $file = static::$logfile;
-        $f = fopen($file, "r+");
-        if ($f !== false) {
-            ftruncate($f, 0);
-            fclose($f);
-        }
-    }
-
     /**
      * Extract exact position of a string
      * @param $haystack
