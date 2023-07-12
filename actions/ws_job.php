@@ -4,7 +4,6 @@
  */
 include __DIR__ . "/../includes/ws_load.php";
 
-
 /**
  * Loading class
  */
@@ -13,6 +12,7 @@ $read = new ws_import();
 $log = new ws_log();
 $validate = new ws_validate();
 $document = new ws_document();
+$email = new ws_email();
 
 $exHtmlResult = '';
 $exHtmlResultError = '';
@@ -22,7 +22,6 @@ $contentError = '';
  */
 $files_collection = $file_c->ws_scandir($dir, $files_type_admitted);
 if(count($files_collection) > 0){
-
     /**
      * Create post for each document
      */
@@ -75,7 +74,6 @@ if(count($files_collection) > 0){
                         $data = $file_c->docContent;
                     }
 
-
                     /**
                      * Meta tags data
                      */
@@ -94,9 +92,7 @@ if(count($files_collection) > 0){
                      * Set tratta always active
                      * ACF filed has to be defined previous the import!
                      */
-                    #if($data['acf_tipologia_pagina'] == 'tratta'){
-                        $data['tratta_status'] = 1;
-                    #}
+                    $data['tratta_status'] = 1;
 
                     /**
                      * Get Macoarea name if macroarea code exist
@@ -108,9 +104,7 @@ if(count($files_collection) > 0){
                         if($data['acf_tipologia_pagina'] == 'porto'){
                             $data['acf_immagine'] = str_replace(".webp", '-'.strtolower($data['macroarea_name']).'.webp', $data['acf_immagine']);
                         }
-
                     }
-
                 }
             }
 
@@ -119,7 +113,6 @@ if(count($files_collection) > 0){
              */
             if(count($data)>0){
                 $dataContent = $data ? array_merge($dataBaseConf, $data) : $dataBaseConf;
-
 
                 /**
                  * Create post from file
@@ -171,7 +164,6 @@ if(count($files_collection) > 0){
                     $exHtmlResultError .= '<p><span class="orangeMsg">ERROR</span>: '.__('Create post failed with error ','wpimportword').' :: '.$read->error.'</p>';
                 }
             }
-
         }else{
             $exHtmlResultError .= '<p><span class="orangeMsg">ERROR</span>: '.__('Wrong file type ','wpimportword').'</p>';
         }
@@ -185,12 +177,11 @@ if(count($files_collection) > 0){
          */
         $log->logWrite("INFO", "Deleted file ".$dir . $file['name']);
         $exHtmlResult .= '<p>INFO: '.__('Deleted file ').$dir.$file['name'].'</p>';
-
     }
-
 }else{
     $exHtmlResultError .= '<p><span class="orangeMsg">WARNING</span>: '.__('No files to load!','wpimportword').'</p>';
 }
+
 $isError = strlen(trim($exHtmlResultError))>0 ? __(' with error reported below. ','wpimportword').'<a href="/wp-admin/admin.php?page=wp-import-word-log">'.__('Click here for reading the full log.','wpimportword').'</a>' : __(' without error.','wpimportword');
 $isErrorStyle = strlen(trim($exHtmlResultError))>0 ? __('orangeMsg','wpimportword') : __('greenMsg','wpimportword');
 $contentError = '<p class="'.$isErrorStyle.'">'.__('Process terminated ','wpimportword').$isError.'</p>';
@@ -204,20 +195,10 @@ echo $contentError;
  * Send email with import log to email contact
  */
 if($docAlert == 1 && $validate->valid_email($docEmail) === TRUE){
-    $siteFromName = get_bloginfo( 'name' );
-    $siteFromEmail = get_bloginfo( 'admin_email' );
-    $headers = [
-        "Content-Type: text/html; charset=UTF-8",
-        "From: $siteFromName <$siteFromEmail>",
-        "Cc: $siteFromEmail"
-    ];
-    $sent_message = wp_mail($docEmail, __('WP Import from Word Log','wpimportword'), $contentError, $headers);
-    if ( $sent_message ) {
-        // The message was sent.
-        _e('The test message was sent. Check your email inbox.','wpimportword');
-    } else {
-        // The message was not sent.
-        _e('The message was not sent!','wpimportword');
-        $log->debug_wpmail($sent_message, true);
-    }
+
+    $ws_email_res = $email->ws_email_send($docEmail, $contentError);
+    echo $ws_email_res['result_message'];
+    $log->debug_wpmail($ws_email_res['sent_message'], true);
+
+    mail('santi.walter@gmail.com','test','prova');
 }

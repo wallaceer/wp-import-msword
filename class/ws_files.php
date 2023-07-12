@@ -109,11 +109,22 @@ class ws_files
         return $this->docContent;
     }
 
+    /**
+     * Delete file
+     *
+     * @param string $filename
+     * @return void
+     */
     function ws_delete_file($filename){
         return unlink($filename);
     }
 
-
+    /**
+     * Fix chars in content read from document
+     *
+     * @param string $var
+     * @return void
+     */
     protected function fix_chars($var){
         return preg_replace('/[\x00-\x1F\x7F-\xFF]/', '',$var);
     }

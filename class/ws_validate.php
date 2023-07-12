@@ -59,6 +59,4 @@ class ws_validate
         return $text;
     }
 
-
-
 }

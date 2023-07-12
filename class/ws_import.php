@@ -58,26 +58,24 @@ class ws_import {
      * @return int|string|WP_Error
      */
     public function ws_insert($data){
-    $my_post = array(
-        'post_title'    => wp_strip_all_tags( $data['post_title'] ),
-        'post_content'  => trim($data['post_content']),
-        'post_status'   => $data['post_status'],
-        'post_author'   => 1,
-        #'guid' => $data['guid'],
-        'post_type' => $data['post_type'],
-        'post_parent' => $data['post_parent'] ?? 0,
-        'post_name' => $data['slug'],
-        'page_template' => wp_strip_all_tags($data['acf_tipologia_pagina']).'.php'
-    );
+        $my_post = array(
+            'post_title'    => wp_strip_all_tags( $data['post_title'] ),
+            'post_content'  => trim($data['post_content']),
+            'post_status'   => $data['post_status'],
+            'post_author'   => 1,
+            'post_type' => $data['post_type'],
+            'post_parent' => $data['post_parent'] ?? 0,
+            'post_name' => $data['slug'],
+            'page_template' => wp_strip_all_tags($data['acf_tipologia_pagina']).'.php'
+        );
 
-      $this->post_id = wp_insert_post( $my_post );
-      if(!is_wp_error($this->post_id)){
-          return $this->post_id;
-      }else{
-          //there was an error in the post insertion,
-          return $this->error = $this->post_id->get_error_message();
-      }
-
+        $this->post_id = wp_insert_post( $my_post );
+        if(!is_wp_error($this->post_id)){
+            return $this->post_id;
+        }else{
+            //there was an error in the post insertion,
+            return $this->error = $this->post_id->get_error_message();
+        }
     }
 
     /**

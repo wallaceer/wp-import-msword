@@ -2,8 +2,8 @@
 Contributors: Walter Santi
 Tags: word, import, content, post, page
 Requires at least: 5.2
-Tested up to: 6.2
-Stable tag: 2.1
+Tested up to: 6.2.2
+Stable tag: 2.2
 License:
 License URI:
 Text Domain: wpimportword
@@ -45,4 +45,7 @@ You can configure the plugin in order that it manages the content in two differe
 * Moved to ZipArchive()
 
 = 2.1 =
+* Optimized code
+
+= 2.2 =
 * Optimized code

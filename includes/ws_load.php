@@ -5,6 +5,7 @@ require_once __DIR__ . "/../class/ws_import.php";
 require_once __DIR__ . "/../class/ws_log.php";
 require_once __DIR__ . "/../class/ws_validate.php";
 require_once __DIR__ . "/../class/ws_document.php";
+require_once __DIR__ . "/../class/ws_email.php";
 require_once __DIR__ . '/ws_functions.php';
 
 
@@ -29,6 +30,7 @@ $postParent = get_option('wp_import_word_post_parent');
 $acfMapping = get_option('wp_import_word_acf_mapping');
 
 $upload_dir   = wp_upload_dir();
+
 /**
  * Working directory
  */

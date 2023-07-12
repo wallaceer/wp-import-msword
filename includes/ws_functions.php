@@ -32,11 +32,6 @@ add_action( 'admin_enqueue_scripts', 'register_wpwordimport_plugin_scripts' );
 
 function load_wpwordimport_plugin_scripts( $hook ) {
 
-    // Load only on ?page=sample-page
-   # if( $hook != 'toplevel_page_wp-import-word' ) {
-    #    return;
-   # }
-
     // Load style & scripts.
     wp_enqueue_style( 'wp-import-word-css' );
     wp_enqueue_script( 'wp-import-word-js' );
