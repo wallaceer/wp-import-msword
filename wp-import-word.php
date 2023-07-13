@@ -5,7 +5,7 @@
  * Description: Import content from Word document
  * Author: WiTech
  * Author URI: https://waltersanti.info
- * Version: 2.2
+ * Version: 2.3
  * Requires at least: 5.2
  * Requires PHP: 7.2
  * Text Domain: wpimportword

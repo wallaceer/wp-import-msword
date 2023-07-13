@@ -1,4 +1,10 @@
-This plugin create a Page or a Post in your Wordpress site by reading content from a word document.
+Whit this plugin you can create a Page or Post in your Wordpress site reading content from a word document.
+You can use .docx or .doc extension, but the preferred format is DOCX; docx is the more tested format.
+The plugin has four section in the WP backend
+- Word Import, used for importing documents and create contents
+- Configuration, for configuring plugin
+- Logs, for reading import register
+- Help, for reading this guide
 
 Tested up to WP 6.2
 
@@ -6,8 +12,6 @@ Tested up to WP 6.2
 - PHP zip extension
 
 **How it works**
-This plugin you permit tu generate post or page in WP directly importing content from Word document.
-You can use .docx or .doc extension, but the preferred format is DOCX; docx is the more tested format.
 You can configure the plugin with this informations:
 1. Directory to save documents (only directory name)
 
@@ -34,3 +38,10 @@ You can configure the plugin with this informations:
 10. Send report Email
 
 11. Email address for report 
+
+When you have configured the plugin you have to go to the import section "Word Import" and
+1. Load the documents
+2. Click on "Upload"
+3. Read the message results or the log in case of errors
+4. Verify the contents created
+5. Edit the contents created
