@@ -104,7 +104,7 @@ class ws_files
         if(is_array($contentExplode) && count($contentExplode) !== count($strExplode)) return $this->errorFile = 'Invalid file structure, number of fields does not match with structure definition in plugin configuration, found '.count($contentExplode).' expected '.count($strExplode).'.';
 
         foreach ($contentExplode as $ri=>$re){
-            $this->docContent[$strExplode[$ri]] = $this->fix_chars(trim($re));
+            $this->docContent[$strExplode[$ri]] = trim($re);
         }
         return $this->docContent;
     }
@@ -122,11 +122,13 @@ class ws_files
     /**
      * Fix chars in content read from document
      *
-     * @param string $var
-     * @return void
+     * @param string $pattern
+     * @param string $replace
+     * @param string $string
+     * @return string
      */
-    protected function fix_chars($var){
-        return preg_replace('/[\x00-\x1F\x7F-\xFF]/', '',$var);
+    protected function fix_chars($pattern,$replace,$string){
+        return preg_replace($pattern,$replace,$string); 
     }
 
 }
