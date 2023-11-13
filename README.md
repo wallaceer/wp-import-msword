@@ -6,7 +6,7 @@ The plugin has four section in the WP backend
 - Logs, for reading import register
 - Help, for reading this guide
 
-Tested up to WP 6.3
+Tested up to WP 6.4.1
 
 **Requirements**
 - PHP zip extension

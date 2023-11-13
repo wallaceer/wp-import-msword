@@ -21,9 +21,9 @@ add_action('admin_menu', 'ws_word_import');
 
 function register_wpwordimport_plugin_scripts() {
 
-    wp_register_style( 'wp-import-word-css', plugins_url( 'wp-import-word/assets/css/style.css' ) );
-    wp_register_script( 'wp-import-word-js', plugins_url( 'wp-import-word/assets/js/functions.js' ) );
-    wp_register_script( 'wp-import-word-js2', plugins_url( 'wp-import-word/assets/js/sfunctions.js' ) );
+    wp_register_style( 'wp-import-word-css', plugins_url( 'wp-import-msword/assets/css/style.css' ) );
+    wp_register_script( 'wp-import-word-js', plugins_url( 'wp-import-msword/assets/js/functions.js' ) );
+    wp_register_script( 'wp-import-word-js2', plugins_url( 'wp-import-msword/assets/js/sfunctions.js' ) );
 
 }
 add_action( 'admin_enqueue_scripts', 'register_wpwordimport_plugin_scripts' );
@@ -56,7 +56,7 @@ function wp_import_word() {
     <script>
         ddup.init({
             target : document.getElementById("wp-import-word"), // target html <div>
-            action : "../wp-content/plugins/wp-import-word/actions/ws_upload.php", // server-side upload handler
+            action : "../wp-content/plugins/wp-import-msword/actions/ws_upload.php", // server-side upload handler
             data : { key : "value" } // optional, extra post data
         });
     </script>

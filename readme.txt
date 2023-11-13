@@ -2,8 +2,8 @@
 Contributors: Walter Santi
 Tags: word, import, content, post, page
 Requires at least: 5.2
-Tested up to: 6.3.1
-Stable tag: 2.3.1
+Tested up to: 6.4.1
+Stable tag: 2.3.2
 License:
 License URI:
 Text Domain: wpimportword
@@ -17,7 +17,7 @@ The plugin has four section in the WP backend
 - Logs, for reading import register
 - Help, for reading this guide
 
-Tested up to WP 6.3
+Tested up to WP 6.4.1
 
 **Requirements**
 - PHP zip extension
@@ -74,3 +74,6 @@ When you have configured the plugin you have to go to the import section "Word I
 
 = 2.3.1 =
 * Tested with WP 6.3.1 and PHP 8.0.29
+
+= 2.3.2 =
+* Tested with WP 6.4.1

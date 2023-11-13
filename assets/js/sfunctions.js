@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
         if(accessToken != ''){
             $.ajax({
                 type: "POST",
-                url: "../wp-content/plugins/wp-import-word/actions/ws_job.php",
+                url: "../wp-content/plugins/wp-import-msword/actions/ws_job.php",
                 data: {
                     access_token: accessToken
                 },
